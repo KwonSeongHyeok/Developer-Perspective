@@ -1,0 +1,40 @@
+ /****** 건의사항 등록 페이지 ******/
+        h1{
+        text-align: center;
+        }
+        header {
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+       
+        button {
+        width: 100%;
+        }
+        .boxs {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 20px;
+        }
+        .posts {
+            flex: 2;
+            margin-right: 30px;
+        }
+        .aside {
+            flex: 1;
+            background-color: GRAY;
+            border-radius: 5px;
+            padding: 20px; 
+            border: 3px solid black;
+        }
+        .article {
+            padding: 20px;
+            background-color: GRAY;
+            border-radius: 5px;
+            border: 3px solid black;
+        }
+       .visitor-comments form{
+            flex: 1 1 100%;
+            padding: 10px;
+        }

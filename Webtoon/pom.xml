@@ -8,10 +8,10 @@
 		<version>3.3.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>webtoon.semi</groupId>
-	<artifactId>Webtoon</artifactId>
+	<groupId>com.khmall</groupId>
+	<artifactId>demoProject3-mybatis-mapper-insert-select1</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Webtoon</name>
+	<name>demoProject3-mybatis-mapper-insert-select1</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
 	<licenses>
