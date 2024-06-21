@@ -1,17 +1,63 @@
 <!DOCTYPE html>
+<!--alt shift f 자동정렬-->
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="utf-8">
-<title>메인페이지(index)</title>
-</head>
-<body>
-	<h1>회원가입하기</h1>
-	
-	<button onclick="location.href='/member-list'">멤버보기</button>
-	<!-- 누르면 http://localhost:8181/member-list 로 감 -->
-	
-	<a href="/memberRegister">가입하러가기</a><!-- /부분 Controller @GetMapping("/")과같게 -->
-	<!-- 누르면 http://localhost:8181/memberRegister 로 감 -->
+  <head>
+    <meta charset="utf-8" />
+    <title>(index-수정예정)-회원가입/정보보기 페이지</title>
+    <style>
+      .container {
+		display: flex;
+        flex-wrap: wrap;
+        margin: 100px;
+		text-align: center;
+      }
 
-</body>
+      button {
+		border: none;
+		border-radius: 10px;
+		background-color: aliceblue;
+		color: gray;
+		width: 300px;
+		height: 150px;
+		margin-bottom: 100px;
+		margin-right: 100px;
+		font-size: larger;
+
+		box-shadow: 0 0 20px gray;
+      }
+
+	  button:hover{
+		background-color: gray;
+		color: aliceblue;
+		cursor: pointer;
+	  }
+	  
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>전체회원조회 / 회원가입하기</h1>
+      <nav></nav>
+    </header>
+
+    <div class="container">
+
+      <div class="member-view">
+        <button onclick="location.href='/member-list'">멤버보기</button>
+        <!-- 누르면 http://localhost:8181/member-list 로 감 -->
+      </div>
+
+      <div class="register-link">
+        <button onclick="location.href='/memberRegister'">가입하러가기</button>
+        <!-- /부분 Controller @GetMapping("/")과같게 -->
+        <!-- 누르면 http://localhost:8181/memberRegister 로 감 -->
+        <!-- a href = "/memberRegister" 에서 버튼으로 수정 -->
+      </div>
+
+    </div>
+
+    <footer>
+      <p>&copy;2024 웹툰 . All Rights Reserved.</p>
+    </footer>
+  </body>
 </html>

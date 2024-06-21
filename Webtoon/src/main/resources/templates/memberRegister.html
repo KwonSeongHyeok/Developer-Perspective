@@ -3,24 +3,63 @@
 <head>
 	<meta charset="utf-8">
 	<title>회원가입 페이지</title>
+	<style>
+		button{
+			border: none;
+			background-color: #333;
+			color: white;
+			border-radius: 5px;
+			cursor: pointer;
+
+			margin-top: 10px;
+			padding: 10px;
+
+		}
+		
+	</style>
 </head>
 <body>
-	<h1>회원가입 페이지</h1>
+	<header>
+		<h1>회원가입 페이지</h1>
+	</header>
+
+	<div class="container">
 	<!-- th:action="@{/register-member}" 부분은 
 	MemberController의 @PostMapping("/register-member")와 연결-->
 	<form th:action="@{/register-member}" method="post" th:object="${member}">
-		id : <input type="text" th:field="*{mem_id}"><br>
-		이름 : <input type="text" th:field="*{mem_name}"><br>
-		닉네임 : <input type="text" th:field="*{mem_nickname}"><br>
-		비밀번호 : <input type="text" th:field="*{mem_pw}"><br>
-		주소 : <input type="text" th:field="*{mem_address}"><br>
-		이메일 : <input type="text" th:field="*{mem_email}"><br>
-		휴대폰 : <input type="text" th:field="*{mem_phone}"><br>
-		생년월일 : <input type="text" th:field="*{mem_ssn}"><br>
+		<label>id : </label><br>
+		<input type="text" th:field="*{mem_id}"><br>
+
+		<label>이름 : </label><br>
+		<input type="text" th:field="*{mem_name}"><br>
+
+		<label>닉네임 : </label><br>
+		<input type="text" th:field="*{mem_nickname}"><br>
+
+		<label>비밀번호 : </label><br>
+		<input type="text" th:field="*{mem_pw}"><br>
+
+		<label>주소 : </label><br>
+		<input type="text" th:field="*{mem_address}"><br>
+
+		<label>이메일 : </label><br>
+		<input type="text" th:field="*{mem_email}"><br>
+
+		<label>휴대폰 : </label><br>
+		<input type="text" th:field="*{mem_phone}"><br>
+
+		<label>생년월일 : </label><br>
+		<input type="text" th:field="*{mem_ssn}"><br>
+
 		<!--  가입일 : <input type="text" th:field="*{mem_join_date}"><br> -->
-		성별 : <input type="text" th:field="*{mem_gender}"><br>
+
+		<label>성별 : </label><br>
+		<input type="text" th:field="*{mem_gender}"><br>
 		
 		<button>회원가입하기</button>
 	</form>
+	</div>
+
+	<footer></footer>
 </body>
 </html>
