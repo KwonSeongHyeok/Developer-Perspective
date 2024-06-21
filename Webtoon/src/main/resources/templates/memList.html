@@ -2,10 +2,10 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta charset="utf-8">
-	<title>memList</title><!-- 주소는 http://localhost:8181/member-list -->
+	<title>memList-멤버정보확인</title><!-- 주소는 http://localhost:8181/member-list -->
 </head>
 <body>
-	<h1>memList</h1>
+	<h1>memList-멤버정보보기</h1>
 	<table border="1">
 		<thead>
 			<tr>
@@ -13,8 +13,8 @@
 				<th>ID</th>
 				<th>이름</th>
 				<th>닉네임</th>
-				<!-- pw비밀번호보여줄지생각 -->
-				<th>비밀번호</th>
+				<!-- pw비밀번호 안보이게 -->
+				<!--  <th>비밀번호</th> -->
 				
 				<th>주소</th>
 				<th>이메일</th>
@@ -31,8 +31,8 @@
 				<td th:text="${m.mem_id}"></td>
 				<td th:text="${m.mem_name}"></td>
 				<td th:text="${m.mem_nickname}"></td>
-				<!-- 보여주기에 password 보여줄지생각 -->
-				<td th:text="${m.mem_pw}"></td>
+				<!-- 보여주기에 password 숨기기로 -->
+				<!-- <td th:text="${m.mem_pw}"></td>-->
 				
 				<td th:text="${m.mem_address}"></td>
 				<td th:text="${m.mem_email}"></td>

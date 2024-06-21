@@ -8,12 +8,12 @@
 		INSERT INTO member (
 			mem_code, mem_id, mem_name, mem_nickname, mem_pw,
 			mem_address, mem_email, mem_phone, mem_ssn,
-			mem_join_date, mem_gender
+			<!--  mem_join_date,--> mem_gender
 		)
 		VALUES (<!-- #{mem_code} 를 시퀀스처리하는데 적어서오류 -->
 		member_seq.NEXTVAL, #{mem_id}, #{mem_name}, #{mem_nickname}, #{mem_pw},
 		#{mem_address}, #{mem_email}, #{mem_phone}, #{mem_ssn},
-		#{mem_join_date}, #{mem_gender}
+		<!-- #{mem_join_date} --> #{mem_gender}
 		)
 	</insert>
 	
