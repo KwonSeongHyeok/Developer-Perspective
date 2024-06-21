@@ -21,20 +21,24 @@ public class MemberController {
 	
 	//연결:memberRegister.html의<form th:action="@{/register-member}" method="post" th:object="${member}">
 	//
-	@PostMapping("/register-member")
+	@PostMapping("/register-member")//주소창 : http://localhost:8181/register-member
 	public String insertMember(Member member, Model model) {
 		memberService.insertMember(member);
-		model.addAttribute("msg","회원이 등록되었습니다.");
-		return "memberList";
+		
+		List<Member> memList = memberService.getAllMember();//추가
+		model.addAttribute("memList",memList);//추가
+		
+		model.addAttribute("msg","회원이 성공적으로 등록되었습니다.");
+		return "memRegiSuccess";//memList .html 또는 memRegiSuccess - 성공메시지
 	}
 	
 	//연결:index.html의 <button onclick="locatin.href='/member-list'">멤버보기</button>
 	@GetMapping("/member-list")
 	public String getAllMember(Model model) {
-		List<Member> memberList = memberService.getAllMember();
-		log.info("멤버전체목록 : " + memberList);
-		model.addAttribute("memberList", memberList);
-		return "memberList";
+		List<Member> memList = memberService.getAllMember();
+		log.info("멤버전체목록 : " + memList);
+		model.addAttribute("memList", memList);
+		return "memList";//memList.html
 	}
 	//insert-select 프로젝트참고하기
 

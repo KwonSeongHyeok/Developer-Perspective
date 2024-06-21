@@ -11,3 +11,7 @@ mem_ssn VARCHAR2(30),
 mem_join_date DATE DEFAULT SYSDATE,
 mem_gender CHAR(1)
 );
+
+CREATE SEQUENCE member_seq
+START WITH 1
+INCREMENT BY 1;

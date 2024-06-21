@@ -7,9 +7,18 @@
 <body>
 	<h1>회원가입 페이지</h1>
 	<!-- th:action="@{/register-member}" 부분은 
-	controller의 @PostMapping("/register-member")와 연결-->
+	MemberController의 @PostMapping("/register-member")와 연결-->
 	<form th:action="@{/register-member}" method="post" th:object="${member}">
-		이름 : <input type="text" th:field="*{member_name}"><br>
+		id : <input type="text" th:field="*{mem_id}"><br>
+		이름 : <input type="text" th:field="*{mem_name}"><br>
+		닉네임 : <input type="text" th:field="*{mem_nickname}"><br>
+		비밀번호 : <input type="text" th:field="*{mem_pw}"><br>
+		주소 : <input type="text" th:field="*{mem_address}"><br>
+		이메일 : <input type="text" th:field="*{mem_email}"><br>
+		휴대폰 : <input type="text" th:field="*{mem_phone}"><br>
+		생년월일 : <input type="text" th:field="*{mem_ssn}"><br>
+		가입일 : <input type="text" th:field="*{mem_join_date}"><br>
+		성별 : <input type="text" th:field="*{mem_gender}"><br>
 		
 		<button>회원가입하기</button>
 	</form>
