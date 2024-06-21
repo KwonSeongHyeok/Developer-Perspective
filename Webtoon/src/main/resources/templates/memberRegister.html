@@ -34,6 +34,8 @@
 	</style>
 
 	<script>/*jquery사용해서 유효성 실시간띄우기*/
+
+		/*id*/
 		$(document).ready(function(){
 			$("#mem_id_box").on("input", function(){
 				const userId = $(this).val();
@@ -47,6 +49,25 @@
 			});
 
 		});
+
+		/*이름*/
+		$(document).ready(function(){
+			$("#mem_name_box").on("input", function(){
+				const userName = $(this).val();
+				const namePattern = /^[가-힣]{2,5}$/;
+
+				if(namePattern.test(userName)){
+					$("#nameRegexMsg").text("이름이 유효합니다.").css("color","green");
+				}else{
+					$("#nameRegexMsg").text("이름이 유효하지 않습니다. 한글2~5자").css("color","red");
+				}
+			});
+
+		});
+
+		/*닉네임*/
+
+		/*비밀번호-유효성, 비밀번호확인 값과일치*/
 	</script>
 
 
@@ -66,7 +87,8 @@
 		<span id="idRegexMsg"></span><br>
 
 		<label>이름 : </label><br>
-		<input type="text" th:field="*{mem_name}"><br>
+		<input type="text" th:field="*{mem_name}" id="mem_name_box"><br>
+		<span id="nameRegexMsg"></span><br>
 
 		<label>닉네임 : </label><br>
 		<input type="text" th:field="*{mem_nickname}"><br>
@@ -97,6 +119,19 @@
 	</div>
 	<script>
 		/*회원가입누르기 위해 function verifyCheck() 유효성검사*/
+		function verifyCheck(){
+			const userIdVal = document.getElementById("mem_id_box").value;
+
+			const idPattern = /^[a-z0-9]{6,10}$/;
+
+			if(!idPattern.test(userIdVal)){
+				alert("아이디가 유효하지 않습니다. 다시입력");
+				return false;
+			}
+
+			alert("모두 유효합니다. 회원가입 가능");
+			return true;
+		}
 	</script>
 
 	<footer>
