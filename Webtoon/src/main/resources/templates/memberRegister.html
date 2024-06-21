@@ -3,6 +3,10 @@
 <head>
 	<meta charset="utf-8">
 	<title>회원가입 페이지</title>
+
+	<!--유효검사 jquery 참조표시-->
+	<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+
 	<style>
 		button{
 			border: none;
@@ -15,8 +19,38 @@
 			padding: 10px;
 
 		}
-		
+		body{
+			width: 100%;
+			margin: 30px;
+			
+		}
+		.container{
+			width: 100%;
+			text-align: center;
+		}
+		form label{
+			text-align: left;
+		}
 	</style>
+
+	<script>/*jquery사용해서 유효성 실시간띄우기*/
+		$(document).ready(function(){
+			$("#mem_id_box").on("input", function(){
+				const userId = $(this).val();
+				const idPattern = /^[a-z0-9]{6,10}$/;
+
+				if(idPattern.test(userId)){
+					$("#idRegexMsg").text("아이디가 유효합니다.").css("color","green");
+				}else{
+					$("#idRegexMsg").text("아이디가 유효하지 않습니다.6~10영소,수").css("color","red");
+				}
+			});
+
+		});
+	</script>
+
+
+
 </head>
 <body>
 	<header>
@@ -28,7 +62,8 @@
 	MemberController의 @PostMapping("/register-member")와 연결-->
 	<form th:action="@{/register-member}" method="post" th:object="${member}">
 		<label>id : </label><br>
-		<input type="text" th:field="*{mem_id}"><br>
+		<input type="text" th:field="*{mem_id}" id="mem_id_box"><br>
+		<span id="idRegexMsg"></span><br>
 
 		<label>이름 : </label><br>
 		<input type="text" th:field="*{mem_name}"><br>
@@ -56,10 +91,16 @@
 		<label>성별 : </label><br>
 		<input type="text" th:field="*{mem_gender}"><br>
 		
+		<button type="button" onclick="verifyCheck()">유효성 검사</button><br>
 		<button>회원가입하기</button>
 	</form>
 	</div>
+	<script>
+		/*회원가입누르기 위해 function verifyCheck() 유효성검사*/
+	</script>
 
-	<footer></footer>
+	<footer>
+		<p>&copy;2024 웹툰. A R R.</p>
+	</footer>
 </body>
 </html>
