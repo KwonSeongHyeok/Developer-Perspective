@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        
+ <mapper namespace="test.semi.mapper.WebtoonMapper">
+	<insert id="uploadWebtoon" parameterType="test.semi.dto.Webtoon">
+		INSERT INTO webtoon(web_code, web_name, web_author, web_genre, web_summary, web_story, web_day, web_image_path)
+		VALUES(web_seq.NEXTVAL, #{web_name}, #{web_author}, #{web_genre}, #{web_summary}, #{web_story}, #{web_day}, #{web_image_path})
+	</insert>
+	
+	<select id="getAllWebtoon" resultType="test.semi.dto.Webtoon">
+		SELECT * FROM webtoon
+	</select>
+	
+</mapper>
