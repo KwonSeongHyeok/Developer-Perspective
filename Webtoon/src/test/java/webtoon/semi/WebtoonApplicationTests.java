@@ -1,10 +1,10 @@
-package com.khmall;
+package webtoon.semi;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class DemoProject3MybatisMapperInsertSelect1ApplicationTests {
+class WebtoonApplicationTests {
 
 	@Test
 	void contextLoads() {

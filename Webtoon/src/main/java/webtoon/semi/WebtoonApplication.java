@@ -1,13 +1,13 @@
-package com.khmall;
+package webtoon.semi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DemoProject3MybatisMapperInsertSelect1Application {
+public class WebtoonApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DemoProject3MybatisMapperInsertSelect1Application.class, args);
+		SpringApplication.run(WebtoonApplication.class, args);
 	}
 
 }
