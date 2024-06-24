@@ -15,6 +15,7 @@ import webtoon.semi.service.InquiryService;
 
 @Controller
 @Slf4j
+
 public class InquiryController {
 	
 	@Autowired

@@ -5,6 +5,7 @@
 <!-- mybatis db연결 후 값 전달과정생략해줌 sql에서처럼 습관적으로 세미콜론; 붙이지말기-->
 
 <mapper namespace="webtoon.semi.mapper.InquiryMapper">
+	
 	<insert id="insertInquiry" parameterType="webtoon.semi.dto.Inquiry"><!-- id MemberMapper.java 메서드와 일치 -->
 		INSERT INTO inquiry 
 		(inquiry_id , inquiry_title, inquiry_writer,  inquiry_email, inquiry_massage, inquiry_privacy)
@@ -13,7 +14,7 @@
 	</insert>
 	
 	<select id="getIdTitleInquiry" resultType="webtoon.semi.dto.Inquiry">
-		SELECT inquiry_id, inquiry_title, inquiry_writer
+		SELECT inquiry_id, inquiry_title, inquiry_writer, inquiry_createDate
 		FROM inquiry
 	</select>
 	

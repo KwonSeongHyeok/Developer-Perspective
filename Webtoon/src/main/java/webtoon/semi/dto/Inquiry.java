@@ -14,4 +14,5 @@ public class Inquiry {
 	private String inquiry_email;
 	private String inquiry_massage;
 	private String inquiry_privacy;
+	private String inquiry_createDate;
 }
