@@ -19,18 +19,22 @@
 			padding: 10px;
 
 		}
-		body{
-			width: 100%;
+		.container{
+			background-color: aliceblue;
+			
 			margin: 30px;
 			
 		}
-		.container{
-			width: 100%;
+		
+		form{
+			padding: 10px;
+			
 			text-align: center;
+
+
 		}
-		form label{
-			text-align: left;
-		}
+		
+
 	</style>
 
 	<script>/*jquery사용해서 유효성 실시간띄우기*/
@@ -66,6 +70,18 @@
 		});
 
 		/*닉네임*/
+		$(document).ready(function(){
+			$("#mem_nickName_box").on("input", function(){
+				const userNickName = $(this).val();
+				const nickNamePattern = /^[a-z0-9]{6,10}$/;
+
+				if(nickNamePattern.test(userNickName)){
+					$("#nickNameRegexMsg").text("닉네임이 유효합니다.").css("color","green");
+				}else{
+					$("#nickNameRegexMsg").text("닉네임이 유효하지 않습니다.").css("color","red");
+				}
+			});
+		});
 
 		/*비밀번호-유효성, 비밀번호확인 값과일치*/
 	</script>
@@ -91,7 +107,8 @@
 		<span id="nameRegexMsg"></span><br>
 
 		<label>닉네임 : </label><br>
-		<input type="text" th:field="*{mem_nickname}"><br>
+		<input type="text" th:field="*{mem_nickname}" id="mem_nickName_box"><br>
+		<span id="nickNameRegexMsg"></span><br>
 
 		<label>비밀번호 : </label><br>
 		<input type="text" th:field="*{mem_pw}"><br>
@@ -108,7 +125,7 @@
 		<label>생년월일 : </label><br>
 		<input type="text" th:field="*{mem_ssn}"><br>
 
-		<!--  가입일 : <input type="text" th:field="*{mem_join_date}"><br> -->
+		<!--  가입일 : input type="text" th:field="*{mem_join_date}" -->
 
 		<label>성별 : </label><br>
 		<input type="text" th:field="*{mem_gender}"><br>

@@ -7,13 +7,11 @@
 	<insert id="insertMember" parameterType="webtoon.semi.dto.Member"><!-- id MemberMapper.java 메서드와 일치 -->
 		INSERT INTO member (
 			mem_code, mem_id, mem_name, mem_nickname, mem_pw,
-			mem_address, mem_email, mem_phone, mem_ssn,
-			<!--  mem_join_date,--> mem_gender
+			mem_address, mem_email, mem_phone, mem_ssn, mem_gender
 		)
-		VALUES (<!-- #{mem_code} 를 시퀀스처리하는데 적어서오류 -->
+		VALUES (<!-- #{mem_code} 를 시퀀스처리하는데 적어서오류,mem_join_date위아래로제거 -->
 		member_seq.NEXTVAL, #{mem_id}, #{mem_name}, #{mem_nickname}, #{mem_pw},
-		#{mem_address}, #{mem_email}, #{mem_phone}, #{mem_ssn},
-		<!-- #{mem_join_date} --> #{mem_gender}
+		#{mem_address}, #{mem_email}, #{mem_phone}, #{mem_ssn}, #{mem_gender}
 		)
 	</insert>
 	
