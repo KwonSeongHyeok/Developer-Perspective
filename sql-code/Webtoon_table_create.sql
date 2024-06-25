@@ -9,8 +9,9 @@ CREATE TABLE webtoon (
  web_score NUMBER(2, 1),
  web_day VARCHAR2(20) NOT NULL,
  web_year DATE,
- web_finishYN CHAR(1),
- web_completed_date VARCHAR2(30)
+ web_finishYN VARCHAR(10),
+ web_completed_date VARCHAR2(30),
+ web_challengeYN VARCHAR2(10) NOT NULL
 );
 
 CREATE SEQUENCE web_seq;

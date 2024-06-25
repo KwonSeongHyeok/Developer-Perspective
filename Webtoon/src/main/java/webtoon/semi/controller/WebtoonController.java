@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
@@ -32,8 +33,7 @@ public class WebtoonController {
 		return "webUpload";
 	}
 	
-	
-	
+
 	/******  웹툰 정보 db 업로드 PostMapping  ******/
 	@PostMapping("/web-upload")
 	public String uploadWebtoon(
@@ -43,12 +43,85 @@ public class WebtoonController {
 			@RequestParam("web_summary") String web_summary,
 			@RequestParam("web_story") String web_story,
 			@RequestParam("web_day") String web_day,
+			@RequestParam("web_challengeYN") String web_challengeYN,
 			@RequestParam("web_image_path") MultipartFile file,
 			Model model) {
-		webtoonService.uploadWebtoon(web_name, web_author, web_genre, web_summary, web_story, web_day, file);
+		webtoonService.uploadWebtoon(web_name, web_author, web_genre, web_summary, web_story, web_day, web_challengeYN, file);
 		
-		return "redirect:/";
+		return "redirect:/webtoon-Main";
 	}
 	
-
+	
+	/******* 요일별 웹툰을 볼 술 있는 GetMapping *******/
+	@GetMapping("/webtoon/Monday")
+	public String getMonWebtoon(Model model) {
+		List<Webtoon> webtoon = webtoonService.getMonWebtoon();
+		model.addAttribute("webtoon", webtoon);
+		return "mondayWeb";
+	}
+	@GetMapping("/webtoon/Tuesday")
+	public String getTuesWebtoon(Model model) {
+		List<Webtoon> webtoon = webtoonService.getTuesWebtoon();
+		model.addAttribute("webtoon", webtoon);
+		return "tuesdayWeb";
+	}
+	@GetMapping("/webtoon/Wednesday")
+	public String getWednesWebtoon(Model model) {
+		List<Webtoon> webtoon = webtoonService.getWednesWebtoon();
+		model.addAttribute("webtoon", webtoon);
+		return "wednesdayWeb";
+	}
+	@GetMapping("/webtoon/Thursday")
+	public String getThursWebtoon(Model model) {
+		List<Webtoon> webtoon = webtoonService.getThursWebtoon();
+		model.addAttribute("webtoon", webtoon);
+		return "thursdayWeb";
+	}
+	@GetMapping("/webtoon/Friday")
+	public String getFriWebtoon(Model model) {
+		List<Webtoon> webtoon = webtoonService.getFriWebtoon();
+		model.addAttribute("webtoon", webtoon);
+		return "fridayWeb";
+	}
+	@GetMapping("/webtoon/Saturday")
+	public String getsaturWebtoon(Model model) {
+		List<Webtoon> webtoon = webtoonService.getsaturWebtoon();
+		model.addAttribute("webtoon", webtoon);
+		return "saturdayWeb";
+	}
+	@GetMapping("/webtoon/Sunday")
+	public String getSunWebtoon(Model model) {
+		List<Webtoon> webtoon = webtoonService.getSunWebtoon();
+		model.addAttribute("webtoon", webtoon);
+		return "sundayWeb";
+	}
+	@GetMapping("/webtoon/Challenge")
+	public String getChallengeWeb(Model model) {
+		List<Webtoon> webtoon = webtoonService.getChallengeWeb();
+		model.addAttribute("webtoon", webtoon);
+		return "challengeWeb";
+	}
+	
+	
+	/******* 웹툰을 보거나 상세보기로 가는 GetMapping *******/
+	@GetMapping("/Webtoon/{web_code}")
+	public String getWebByCode(Model model, @PathVariable int web_code) {
+		Webtoon webtoon = webtoonService.getWebByCode(web_code);
+		model.addAttribute("webtoon", webtoon);
+		
+		String imageURL = webtoon.getWeb_image_path();
+		int index1 = imageURL.indexOf("/", 2);
+		int index2 = imageURL.indexOf(".");
+		
+		String url = imageURL.substring(index1+1, index2);
+		
+		String challengeYN = webtoon.getWeb_challengeYN();
+		if(challengeYN.equals("Y")) {
+			return "webDetail";
+		} else {
+			return "redirect:http://comic.naver.com/webtoon/list?titleId=" + url;
+		}
+	}
+	
+	
 }

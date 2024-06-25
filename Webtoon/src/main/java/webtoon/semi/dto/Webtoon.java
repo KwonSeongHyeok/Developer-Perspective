@@ -20,4 +20,5 @@ public class Webtoon {
 	private String web_year;
 	private String web_finishYN;
 	private String web_completed_date;
+	private String web_challengeYN;
 }

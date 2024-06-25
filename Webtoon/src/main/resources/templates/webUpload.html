@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <title>Webtoon Upload</title>
-<link rel="stylesheet" href="/css/webtoonUpload.css">
+
 </head>
 <body>
 	<div class="container">
@@ -51,9 +51,13 @@
 				<label><input type="radio" name="요일" value="금요일" th:field="${w.web_day}" required>금요일</label>	
 				<label><input type="radio" name="요일" value="토요일" th:field="${w.web_day}" required>토요일</label>	
 				<label><input type="radio" name="요일" value="일요일" th:field="${w.web_day}" required>일요일</label>	
-				<label><input type="radio" name="요일" value="자유연재" th:field="${w.web_day}" required>자유연재</label>	
 			</div>
 			<br>
+			<div class="radio">
+				<label>도전여부 : </label><br>
+				<label><input type="radio" name="도전여부" value="Y" th:field="${w.web_challengeYN}" required>Y</label>	
+				<label><input type="radio" name="도전여부" value="N" th:field="${w.web_challengeYN}" required>N</label>	
+			</div>
 			<div>
 				<label>대표이미지 : </label>
 				<input type="file" th:field="${w.web_image_path}" required>

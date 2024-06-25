@@ -4,14 +4,59 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
         
- <mapper namespace="test.semi.mapper.WebtoonMapper">
-	<insert id="uploadWebtoon" parameterType="test.semi.dto.Webtoon">
-		INSERT INTO webtoon(web_code, web_name, web_author, web_genre, web_summary, web_story, web_day, web_image_path)
-		VALUES(web_seq.NEXTVAL, #{web_name}, #{web_author}, #{web_genre}, #{web_summary}, #{web_story}, #{web_day}, #{web_image_path})
+ <mapper namespace="webtoon.semi.mapper.WebtoonMapper">
+ 	<!-- 웹툰 업로드 insert -->
+	<insert id="uploadWebtoon" parameterType="webtoon.semi.dto.Webtoon">
+		INSERT INTO webtoon(web_code, web_name, web_author, web_genre, web_summary, web_story, web_day, web_image_path, web_challengeYN)
+		VALUES(web_seq.NEXTVAL, #{web_name}, #{web_author}, #{web_genre}, #{web_summary}, #{web_story}, #{web_day}, #{web_image_path}, #{web_challengeYN})
 	</insert>
 	
-	<select id="getAllWebtoon" resultType="test.semi.dto.Webtoon">
+	
+	<!-- 전체 웹툰 보기 select -->
+	<select id="getAllWebtoon" resultType="webtoon.semi.dto.Webtoon">
 		SELECT * FROM webtoon
+	</select>
+	
+	
+	<!-- 요일별 웹툰 보기 select -->
+	<select id="getMonWebtoon" resultType="webtoon.semi.dto.Webtoon">
+		SELECT * FROM webtoon
+    	WHERE WEB_DAY = '월요일'
+	</select>
+	<select id="getTuesWebtoon" resultType="webtoon.semi.dto.Webtoon">
+		SELECT * FROM webtoon
+    	WHERE WEB_DAY = '화요일'
+	</select>
+	<select id="getWednesWebtoon" resultType="webtoon.semi.dto.Webtoon">
+		SELECT * FROM webtoon
+    	WHERE WEB_DAY = '수요일'
+	</select>
+	<select id="getThursWebtoon" resultType="webtoon.semi.dto.Webtoon">
+		SELECT * FROM webtoon
+    	WHERE WEB_DAY = '목요일'
+	</select>
+	<select id="getFriWebtoon" resultType="webtoon.semi.dto.Webtoon">
+		SELECT * FROM webtoon
+    	WHERE WEB_DAY = '금요일'
+	</select>
+	<select id="getsaturWebtoon" resultType="webtoon.semi.dto.Webtoon">
+		SELECT * FROM webtoon
+    	WHERE WEB_DAY = '토요일'
+	</select>
+	<select id="getSunWebtoon" resultType="webtoon.semi.dto.Webtoon">
+		SELECT * FROM webtoon
+    	WHERE WEB_DAY = '일요일'
+	</select>
+	<select id="getChallengeWeb" resultType="webtoon.semi.dto.Webtoon">
+		SELECT * FROM webtoon
+    	WHERE WEB_CHALLENGEYN = 'Y'
+	</select>
+	
+
+	<!-- 웹툰 url 연결 및 상세보기 code 값으로 확인 -->
+	<select id="getWebByCode" resultType="webtoon.semi.dto.Webtoon" parameterType="int">
+		SELECT * FROM webtoon
+		WHERE web_code = #{web_code}
 	</select>
 	
 </mapper>

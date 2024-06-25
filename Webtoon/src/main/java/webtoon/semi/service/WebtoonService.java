@@ -22,9 +22,9 @@ public class WebtoonService {
 	
 	
 	//uploadWebtoon
-	public void uploadWebtoon(String web_name, String web_author, String web_genre, String web_summary, String web_story, String web_day, MultipartFile file) {
+	public void uploadWebtoon(String web_name, String web_author, String web_genre, String web_summary, String web_story, String web_day, String web_challengeYN, MultipartFile file) {
 		String fileName = file.getOriginalFilename();
-		String uploadDir = "C:/Users/user1/Test1/Test/src/main/resources/static/images/";
+		String uploadDir = "C:/Users/user1/semiProject/Webtoon/src/main/resources/static/images/";
 		File imgFile = new File(uploadDir + fileName);
 		
 		if(!imgFile.exists()) {
@@ -41,15 +41,45 @@ public class WebtoonService {
 			webtoon.setWeb_summary(web_summary);
 			webtoon.setWeb_story(web_story);
 			webtoon.setWeb_day(web_day);
+			webtoon.setWeb_challengeYN(web_challengeYN);
 			webtoon.setWeb_image_path("/images/" + fileName);
-			
 			webtoonMapper.uploadWebtoon(webtoon);
 			
 		}  catch (IOException e) {
 			e.printStackTrace();
 		}
-		
-			
 	}
-
+	
+	// 요일별 
+	public List<Webtoon> getMonWebtoon() {
+		return webtoonMapper.getMonWebtoon();
+	}
+	public List<Webtoon> getTuesWebtoon() {
+		return webtoonMapper.getTuesWebtoon();
+	}
+	public List<Webtoon> getWednesWebtoon() {
+		return webtoonMapper.getWednesWebtoon();
+	}
+	public List<Webtoon> getThursWebtoon() {
+		return webtoonMapper.getThursWebtoon();
+	}
+	public List<Webtoon> getFriWebtoon() {
+		return webtoonMapper.getFriWebtoon();
+	}
+	public List<Webtoon> getsaturWebtoon() {
+		return webtoonMapper.getsaturWebtoon();
+	}
+	public List<Webtoon> getSunWebtoon() {
+		return webtoonMapper.getSunWebtoon();
+	}
+	public List<Webtoon> getChallengeWeb() {
+		return webtoonMapper.getChallengeWeb();
+	}
+	
+	
+	// 코드 가져와서 상세보기 및 만화보기 연결
+	public Webtoon getWebByCode(int web_code) {
+		return webtoonMapper.getWebByCode(web_code);
+	}
+	
 }

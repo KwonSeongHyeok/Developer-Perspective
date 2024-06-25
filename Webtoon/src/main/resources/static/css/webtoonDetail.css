@@ -1,0 +1,74 @@
+.card-img-top {
+	object-fit: cover;
+	height: 100%;
+}
+.card{
+	margin : 10px 0 0 0;
+	box-shadow: 0 0 10px #343a40;
+}
+.card span{
+	text-align: justify;
+	font-family: "Jua", sans-serif;
+  	font-weight: 700;
+  	font-style: normal;
+  	margin-left: 5px;
+}
+
+
+.footer {
+	background-color: #343a40;
+	color: white;
+	padding: 5px;
+}
+
+.footer a {
+	color: white;
+	text-decoration: none;
+}
+
+.container .title span {
+	font-weight: 700;
+  	font-style: normal;
+  	font-size: larger;
+}
+
+.container a{
+	
+	color: white;
+	text-decoration: none;
+	font-size: small;
+}
+
+.container img{
+	width: 50%;
+	height: auto;
+	
+}
+
+.container{
+	width: 50%;
+	margin-top:10px;
+	padding: 20px;
+	background-color: #fff;
+	border-radius: 8px;
+	
+	box-shadow: 0 0 10px #343a40;
+}
+
+.detail{
+	margin-bottom: 10px;
+	font-family: "Jua", sans-serif;
+  	font-weight: 700;
+  	font-style: normal;
+}
+
+.detail img{
+	width: 300px;
+	height: auto;
+	border-radius: 15px;
+}
+
+.moreInfo{
+	border: 1px solid #343a40;
+	padding: 10px;
+}
