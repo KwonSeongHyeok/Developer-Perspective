@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="utf-8">
-<title>로그인</title>
+	<meta charset="utf-8">
+	<title>로그인</title>
+	<link rel="stylesheet" href="/css/headerFooter.css">
 </head>
 <body>
-	<h1>로그인</h1>
+	<header>
+		<h1>로그인</h1>
+	</header>
+	
 	<form action="/login" method="post"><!-- m은 controller addAttribute -->
 		id : <input type="text" th:field="${m.mem_id}"><br>
 		pw : <input type="password" th:field="${m.mem_pw}"><br>
@@ -14,6 +18,10 @@
 	<div th:if="${e}">
 		<p th:text="${e}" style="color:red;"></p>
 	</div>
+	
+	<footer>
+		<p>&copy;</p>
+	</footer>
 
 </body>
 </html>

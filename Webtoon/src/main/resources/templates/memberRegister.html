@@ -3,58 +3,10 @@
 <head>
 	<meta charset="utf-8">
 	<title>회원가입 페이지</title>
+	<link rel="stylesheet" href="/css/headerFooter.css">
+	<link rel="stylesheet" href="/css/memberRegister.css">
 
-	<!--유효검사 jquery 참조표시-->
 	<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-
-	<style>
-
-		body{
-			margin: 0;
-			padding: 0;
-			background-color: aliceblue;
-		}
-
-		header, footer{
-			background-color: #333;
-			color: white;
-			padding: 1px;
-			text-align: center;
-			
-			
-		}
-
-		button{
-			border: none;
-			background-color: #333;
-			color: white;
-			border-radius: 5px;
-			cursor: pointer;
-
-			margin-top: 10px;
-			padding: 10px;
-
-		}
-		.container{
-			background-color: white;
-			box-shadow: 0 0 5px blue;
-			
-			margin: 30px;
-			
-		}
-		
-		form{
-			padding: 20px;
-			
-		}
-		input{
-			width: 200px;
-			height: 20px;
-		}
-
-		
-
-	</style>
 
 	<script>/*jquery사용해서 유효성 실시간띄우기*/
 
@@ -70,7 +22,6 @@
 					$("#idRegexMsg").text("아이디가 유효하지 않습니다. 6~10영소,수").css("color","red");
 				}
 			});
-
 		});
 
 		/*이름*/
@@ -85,7 +36,6 @@
 					$("#nameRegexMsg").text("이름이 유효하지 않습니다. 한글2~5자").css("color","red");
 				}
 			});
-
 		});
 
 		/*닉네임*/
@@ -128,7 +78,6 @@
 					$("#pwConfirmMsg").text("비밀번호가 일치하지 않습니다.").css("color","red");
 				}
 			});
-
 		});
 
 	</script>

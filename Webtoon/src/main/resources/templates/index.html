@@ -2,67 +2,43 @@
 <!--alt shift f 자동정렬-->
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="utf-8" />
-<title>(index-수정예정)-회원가입/정보보기 페이지</title>
-<style>
-.container {
-	display: flex;
-	flex-wrap: wrap;
-	margin: 100px;
-	text-align: center;
-}
-
-button {
-	border: none;
-	border-radius: 10px;
-	background-color: aliceblue;
-	color: gray;
-	width: 300px;
-	height: 150px;
-	margin-bottom: 100px;
-	margin-right: 100px;
-	font-size: larger;
-	box-shadow: 0 0 20px gray;
-}
-
-button:hover {
-	background-color: gray;
-	color: aliceblue;
-	cursor: pointer;
-}
-</style>
+	<meta charset="utf-8" />
+	<title>(index-수정예정)-회원가입/정보보기 페이지</title>
+	<link rel="stylesheet" href="/css/headerFooter.css">
+	<link rel="stylesheet" href="/css/index.css">
 </head>
 <body>
 	<header>
-		<h1>전체회원조회 / 회원가입하기</h1>
+		<h1>전체회원/회원가입/로그인</h1>
 		<nav></nav>
 	</header>
 
-	<div class="container">
-
+	<div class="nav_login">
 		<div th:if="${session.loginSession != null}">
 			<p th:text="${session.loginSession.mem_name} + ' 님 환영합니다.' "></p>
 			<a href="/logout">로그아웃</a> <a href="/myPage">마이페이지</a>
 		</div>
+	</div>
 
+	<div class="container">
 		<div th:if="${session.loginSession == null}">
-			<p>로그인하지 않았습니다.</p>
+			<p>현재 로그아웃 상태</p>
 
-			<div class="member-view">
+			<span class="member-view">
 				<button onclick="location.href='/member-list'">멤버보기</button>
 				<!-- 누르면 http://localhost:8181/member-list 로 감 -->
-			</div>
+			</span>
 
-			<div class="register-link">
+			<span class="register-link">
 				<button onclick="location.href='/memberRegister'">가입하러가기</button>
 				<!-- /부분 Controller @GetMapping("/")과같게 -->
 				<!-- 누르면 http://localhost:8181/memberRegister 로 감 -->
 				<!-- a href = "/memberRegister" 에서 버튼으로 수정 -->
-			</div>
+			</span>
 			
-			<div>
+			<span>
 				<button onclick="location.href='/login'">로그인하기</button>
-			</div>
+			</span>
 		</div>
 
 	</div>
