@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>마이페이지</title>
+</head>
+<body>
+	<h1>마이페이지</h1>
+	
+	<div th:if="${member != null}">
+		<p>id : </p> <p th:text="${member.mem_id}"></p>
+		<p>name : </p> <p th:text="${member.mem_name}"></p>
+		<p>nickName : </p> <p th:text="${member.mem_nickname}"></p>
+		<p>password : </p> <p th:text="${member.mem_pw}"></p>
+		<p>address : </p> <p  th:text="${member.mem_address}"></p>
+		<p>email : </p> <p th:text="${member.mem_email}"></p>
+		<p>phone : </p> <p th:text="${member.mem_phone}"></p>
+		<p>ssn : </p> <p th:text="${member.mem_ssn}"></p>
+		<p>joinDate : </p> <p th:text="${member.mem_join_date}"></p>
+		<p>gender : </p> <p th:text="${member.mem_gender}"></p>
+		
+		<!-- 
+		<a th:href="@{/modifyProfile}">마이페이지 수정하기</a>
+		 -->
+		
+		<form th:action="@{/deleteMember}" method="get">
+			<button>탈퇴하기</button>
+		</form>
+		
+		<form>
+		</form>
+	</div>
+	
+</body>
+</html>

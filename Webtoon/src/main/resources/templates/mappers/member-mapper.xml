@@ -18,4 +18,18 @@
 	<select id="getAllMember" resultType="webtoon.semi.dto.Member"><!-- id MemberMapper.java 메서드와 일치 -->
 		SELECT * FROM member
 	</select>
+	
+	<!-- 로그인 아이디 패스워드 받아서진행 -->
+	<select id="getLogin" resultType="webtoon.semi.dto.Member" parameterType="java.util.Map">
+		SELECT * FROM member
+		WHERE mem_id = #{mem_id}
+		AND mem_pw = #{mem_pw}
+	</select>
+	
+	<!-- 회원탈퇴 db에서삭제 -->
+	<delete id="deleteMember" parameterType="String">
+		DELETE FROM member
+		WHERE mem_id = #{mem_id}
+	</delete>
+	
 </mapper>

@@ -24,5 +24,14 @@ public class MemberService {
 		return memberMapper.getAllMember();
 	}
 	
+	//추가
+	public Member getLogin(String mem_id, String mem_pw) {
+		return memberMapper.getLogin(mem_id, mem_pw);
+	}
+	
+	//추가
+	public void deleteMember(String member_id) {
+		memberMapper.deleteMember(member_id);
+	}
 
 }
