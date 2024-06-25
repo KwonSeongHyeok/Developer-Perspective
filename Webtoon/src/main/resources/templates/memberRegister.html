@@ -8,6 +8,22 @@
 	<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 
 	<style>
+
+		body{
+			margin: 0;
+			padding: 0;
+			background-color: aliceblue;
+		}
+
+		header, footer{
+			background-color: #333;
+			color: white;
+			padding: 1px;
+			text-align: center;
+			
+			
+		}
+
 		button{
 			border: none;
 			background-color: #333;
@@ -20,19 +36,22 @@
 
 		}
 		.container{
-			background-color: aliceblue;
+			background-color: white;
+			box-shadow: 0 0 5px blue;
 			
 			margin: 30px;
 			
 		}
 		
 		form{
-			padding: 10px;
+			padding: 20px;
 			
-			text-align: center;
-
-
 		}
+		input{
+			width: 200px;
+			height: 20px;
+		}
+
 		
 
 	</style>
@@ -48,7 +67,7 @@
 				if(idPattern.test(userId)){
 					$("#idRegexMsg").text("아이디가 유효합니다.").css("color","green");
 				}else{
-					$("#idRegexMsg").text("아이디가 유효하지 않습니다.6~10영소,수").css("color","red");
+					$("#idRegexMsg").text("아이디가 유효하지 않습니다. 6~10영소,수").css("color","red");
 				}
 			});
 
@@ -78,12 +97,40 @@
 				if(nickNamePattern.test(userNickName)){
 					$("#nickNameRegexMsg").text("닉네임이 유효합니다.").css("color","green");
 				}else{
-					$("#nickNameRegexMsg").text("닉네임이 유효하지 않습니다.").css("color","red");
+					$("#nickNameRegexMsg").text("닉네임이 유효하지 않습니다. 6~10영소,수").css("color","red");
 				}
 			});
 		});
 
 		/*비밀번호-유효성, 비밀번호확인 값과일치*/
+		$(document).ready(function(){
+			$("#mem_pw_box").on("input", function(){
+				const userPw = $(this).val();
+				const pwPattern = /^[a-zA-Z0-9]{8,12}$/;
+
+				if(pwPattern.test(userPw)){
+					$("#pwRegexMsg").text("비밀번호가 유효합니다.").css("color","green");
+				}else{
+					$("#pwRegexMsg").text("비밀번호가 유효하지 않습니다. 8~12영대소,수").css("color","red");
+				}
+			});
+		});
+
+		$(document).ready(function(){
+			$("#mem_pwConfirm_box").on("input",function(){
+				const password = $("#mem_pw_box").val();
+
+				const passwordConfirm = $(this).val();
+
+				if(password===passwordConfirm){
+					$("#pwConfirmMsg").text("비밀번호가 일치합니다.").css("color","green");
+				}else{
+					$("#pwConfirmMsg").text("비밀번호가 일치하지 않습니다.").css("color","red");
+				}
+			});
+
+		});
+
 	</script>
 
 
@@ -99,36 +146,39 @@
 	MemberController의 @PostMapping("/register-member")와 연결-->
 	<form th:action="@{/register-member}" method="post" th:object="${member}">
 		<label>id : </label><br>
-		<input type="text" th:field="*{mem_id}" id="mem_id_box"><br>
+		<input type="text" th:field="*{mem_id}" id="mem_id_box" required><br>
 		<span id="idRegexMsg"></span><br>
 
 		<label>이름 : </label><br>
-		<input type="text" th:field="*{mem_name}" id="mem_name_box"><br>
+		<input type="text" th:field="*{mem_name}" id="mem_name_box" required><br>
 		<span id="nameRegexMsg"></span><br>
 
 		<label>닉네임 : </label><br>
-		<input type="text" th:field="*{mem_nickname}" id="mem_nickName_box"><br>
+		<input type="text" th:field="*{mem_nickname}" id="mem_nickName_box" required><br>
 		<span id="nickNameRegexMsg"></span><br>
 
 		<label>비밀번호 : </label><br>
-		<input type="text" th:field="*{mem_pw}"><br>
+		<input type="password" th:field="*{mem_pw}" id="mem_pw_box" required><br>
+		<span id="pwRegexMsg"></span><br>
+
+		<label>비밀번호 확인 : </label><br>
+		<input type="password" id="mem_pwConfirm_box" required><br>
+		<span id="pwConfirmMsg"></span><br>
 
 		<label>주소 : </label><br>
-		<input type="text" th:field="*{mem_address}"><br>
+		<input type="text" th:field="*{mem_address}" placeholder="필수아님"><br>
 
 		<label>이메일 : </label><br>
-		<input type="text" th:field="*{mem_email}"><br>
+		<input type="text" th:field="*{mem_email}" placeholder="필수아님"><br>
 
 		<label>휴대폰 : </label><br>
-		<input type="text" th:field="*{mem_phone}"><br>
+		<input type="text" th:field="*{mem_phone}" placeholder="필수아님"><br>
 
 		<label>생년월일 : </label><br>
-		<input type="text" th:field="*{mem_ssn}"><br>
-
-		<!--  가입일 : input type="text" th:field="*{mem_join_date}" -->
+		<input type="text" th:field="*{mem_ssn}" placeholder="필수아님"><br>
 
 		<label>성별 : </label><br>
-		<input type="text" th:field="*{mem_gender}"><br>
+		<input type="text" th:field="*{mem_gender}" required placeholder="M/F"><br>
 		
 		<button type="button" onclick="verifyCheck()">유효성 검사</button><br>
 		<button>회원가입하기</button>
@@ -138,13 +188,44 @@
 		/*회원가입누르기 위해 function verifyCheck() 유효성검사*/
 		function verifyCheck(){
 			const userIdVal = document.getElementById("mem_id_box").value;
-
 			const idPattern = /^[a-z0-9]{6,10}$/;
+			
+			const userName = document.getElementById("mem_name_box").value;
+			const namePattern = /^[가-힣]{2,5}$/;
+
+			const userNickName = document.getElementById("mem_nickName_box").value;
+			const nickNamePattern = /^[a-z0-9]{6,10}$/;
+
+			const userPw = document.getElementById("mem_pw_box").value;
+			const pwPattern = /^[a-zA-Z0-9]{8,12}$/;
+
+			const pwConfirm = document.getElementById("mem_pwConfirm_box").value;
 
 			if(!idPattern.test(userIdVal)){
 				alert("아이디가 유효하지 않습니다. 다시입력");
 				return false;
 			}
+
+			if(!namePattern.test(userName)){
+				alert("이름이 유효하지 않습니다. 다시입력");
+				return false;
+			}
+
+			if(!nickNamePattern.test(userNickName)){
+				alert("닉네임이 유효하지 않습니다. 다시입력");
+				return false;
+			}
+
+			if(!pwPattern.test(userPw)){
+				alert("비밀번호가 유효하지 않습니다. 다시입력");
+				return false;
+			}
+
+			if(pwConfirm !== userPw){
+				alert("비밀번호가 일치하지 않습니다. 다시입력");
+				return false;
+			}
+
 
 			alert("모두 유효합니다. 회원가입 가능");
 			return true;
