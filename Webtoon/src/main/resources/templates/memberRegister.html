@@ -1,88 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-	<meta charset="utf-8">
-	<title>회원가입 페이지</title>
-	<link rel="stylesheet" href="/css/headerFooter.css">
-	<link rel="stylesheet" href="/css/memberRegister.css">
+<meta charset="utf-8">
+<title>회원가입 페이지</title>
+<link rel="stylesheet" href="/css/headerFooter.css">
+<link rel="stylesheet" href="/css/memberRegister.css">
 
-	<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-
-	<script>/*jquery사용해서 유효성 실시간띄우기*/
-
-		/*id*/
-		$(document).ready(function(){
-			$("#mem_id_box").on("input", function(){
-				const userId = $(this).val();
-				const idPattern = /^[a-z0-9]{6,10}$/;
-
-				if(idPattern.test(userId)){
-					$("#idRegexMsg").text("아이디가 유효합니다.").css("color","green");
-				}else{
-					$("#idRegexMsg").text("아이디가 유효하지 않습니다. 6~10영소,수").css("color","red");
-				}
-			});
-		});
-
-		/*이름*/
-		$(document).ready(function(){
-			$("#mem_name_box").on("input", function(){
-				const userName = $(this).val();
-				const namePattern = /^[가-힣]{2,5}$/;
-
-				if(namePattern.test(userName)){
-					$("#nameRegexMsg").text("이름이 유효합니다.").css("color","green");
-				}else{
-					$("#nameRegexMsg").text("이름이 유효하지 않습니다. 한글2~5자").css("color","red");
-				}
-			});
-		});
-
-		/*닉네임*/
-		$(document).ready(function(){
-			$("#mem_nickName_box").on("input", function(){
-				const userNickName = $(this).val();
-				const nickNamePattern = /^[a-z0-9]{6,10}$/;
-
-				if(nickNamePattern.test(userNickName)){
-					$("#nickNameRegexMsg").text("닉네임이 유효합니다.").css("color","green");
-				}else{
-					$("#nickNameRegexMsg").text("닉네임이 유효하지 않습니다. 6~10영소,수").css("color","red");
-				}
-			});
-		});
-
-		/*비밀번호-유효성, 비밀번호확인 값과일치*/
-		$(document).ready(function(){
-			$("#mem_pw_box").on("input", function(){
-				const userPw = $(this).val();
-				const pwPattern = /^[a-zA-Z0-9]{8,12}$/;
-
-				if(pwPattern.test(userPw)){
-					$("#pwRegexMsg").text("비밀번호가 유효합니다.").css("color","green");
-				}else{
-					$("#pwRegexMsg").text("비밀번호가 유효하지 않습니다. 8~12영대소,수").css("color","red");
-				}
-			});
-		});
-
-		$(document).ready(function(){
-			$("#mem_pwConfirm_box").on("input",function(){
-				const password = $("#mem_pw_box").val();
-
-				const passwordConfirm = $(this).val();
-
-				if(password===passwordConfirm){
-					$("#pwConfirmMsg").text("비밀번호가 일치합니다.").css("color","green");
-				}else{
-					$("#pwConfirmMsg").text("비밀번호가 일치하지 않습니다.").css("color","red");
-				}
-			});
-		});
-
-	</script>
-
-
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+<script src="/js/memberRegister.js"></script>
 
 </head>
 <body>
@@ -91,95 +16,52 @@
 	</header>
 
 	<div class="container">
-	<!-- th:action="@{/register-member}" 부분은 
-	MemberController의 @PostMapping("/register-member")와 연결-->
-	<form th:action="@{/register-member}" method="post" th:object="${member}">
-		<label>id : </label><br>
-		<input type="text" th:field="*{mem_id}" id="mem_id_box" required><br>
-		<span id="idRegexMsg"></span><br>
+		<div class="registerDiv">
+			<!-- @{/register-member} 부분은 MemberController의 @PostMapping("/register-member")와 연결-->
+			<form th:action="@{/register-member}" method="post" th:object="${member}">
+				<label>id : </label><br>
+				<input type="text" th:field="*{mem_id}" id="mem_id_box" required><br>
+				<span id="idRegexMsg"></span><br>
+				
+				<label>이름 : </label><br>
+				<input type="text" th:field="*{mem_name}" id="mem_name_box" required><br>
+				<span id="nameRegexMsg"></span><br>
+				
+				<label>닉네임 : </label><br>
+				<input type="text" th:field="*{mem_nickname}" id="mem_nickName_box" required><br>
+				<span id="nickNameRegexMsg"></span><br>
 
-		<label>이름 : </label><br>
-		<input type="text" th:field="*{mem_name}" id="mem_name_box" required><br>
-		<span id="nameRegexMsg"></span><br>
+				<label>비밀번호 : </label><br>
+				<input type="password" th:field="*{mem_pw}" id="mem_pw_box" required><br>
+				<span id="pwRegexMsg"></span><br>
+					
+				<label>비밀번호 확인 : </label><br>
+				<input type="password" id="mem_pwConfirm_box" required><br>
+				<span id="pwConfirmMsg"></span><br> <label>주소 : </label><br>
+				<input type="text" th:field="*{mem_address}" placeholder="필수아님"><br>
 
-		<label>닉네임 : </label><br>
-		<input type="text" th:field="*{mem_nickname}" id="mem_nickName_box" required><br>
-		<span id="nickNameRegexMsg"></span><br>
+				<label>이메일 : </label><br>
+				<input type="text" th:field="*{mem_email}" placeholder="필수아님"><br>
+				
+				<label>휴대폰 : </label><br>
+				<input type="text" th:field="*{mem_phone}" placeholder="필수아님"><br>
+				
+				<label>생년월일 : </label><br>
+				<input type="text" th:field="*{mem_ssn}" placeholder="필수아님"><br>
 
-		<label>비밀번호 : </label><br>
-		<input type="password" th:field="*{mem_pw}" id="mem_pw_box" required><br>
-		<span id="pwRegexMsg"></span><br>
+				<label>성별 : </label><br>
+				<input type="text" th:field="*{mem_gender}" id="mem_gender_box" required placeholder="M/F"><br>
+				<span id="genderRegexMsg"></span><br>
 
-		<label>비밀번호 확인 : </label><br>
-		<input type="password" id="mem_pwConfirm_box" required><br>
-		<span id="pwConfirmMsg"></span><br>
-
-		<label>주소 : </label><br>
-		<input type="text" th:field="*{mem_address}" placeholder="필수아님"><br>
-
-		<label>이메일 : </label><br>
-		<input type="text" th:field="*{mem_email}" placeholder="필수아님"><br>
-
-		<label>휴대폰 : </label><br>
-		<input type="text" th:field="*{mem_phone}" placeholder="필수아님"><br>
-
-		<label>생년월일 : </label><br>
-		<input type="text" th:field="*{mem_ssn}" placeholder="필수아님"><br>
-
-		<label>성별 : </label><br>
-		<input type="text" th:field="*{mem_gender}" required placeholder="M/F"><br>
-		
-		<button type="button" onclick="verifyCheck()">유효성 검사</button><br>
-		<button>회원가입하기</button>
-	</form>
+				
+				<button id="joinToggle">회원가입하기</button>
+			</form>
+		</div>
+		<div class="sideDiv">
+			<h1>웹툰광고</h1>
+			<img src=/images/kunekune-pigs3.jpg>
+		</div>
 	</div>
-	<script>
-		/*회원가입누르기 위해 function verifyCheck() 유효성검사*/
-		function verifyCheck(){
-			const userIdVal = document.getElementById("mem_id_box").value;
-			const idPattern = /^[a-z0-9]{6,10}$/;
-			
-			const userName = document.getElementById("mem_name_box").value;
-			const namePattern = /^[가-힣]{2,5}$/;
-
-			const userNickName = document.getElementById("mem_nickName_box").value;
-			const nickNamePattern = /^[a-z0-9]{6,10}$/;
-
-			const userPw = document.getElementById("mem_pw_box").value;
-			const pwPattern = /^[a-zA-Z0-9]{8,12}$/;
-
-			const pwConfirm = document.getElementById("mem_pwConfirm_box").value;
-
-			if(!idPattern.test(userIdVal)){
-				alert("아이디가 유효하지 않습니다. 다시입력");
-				return false;
-			}
-
-			if(!namePattern.test(userName)){
-				alert("이름이 유효하지 않습니다. 다시입력");
-				return false;
-			}
-
-			if(!nickNamePattern.test(userNickName)){
-				alert("닉네임이 유효하지 않습니다. 다시입력");
-				return false;
-			}
-
-			if(!pwPattern.test(userPw)){
-				alert("비밀번호가 유효하지 않습니다. 다시입력");
-				return false;
-			}
-
-			if(pwConfirm !== userPw){
-				alert("비밀번호가 일치하지 않습니다. 다시입력");
-				return false;
-			}
-
-
-			alert("모두 유효합니다. 회원가입 가능");
-			return true;
-		}
-	</script>
 
 	<footer>
 		<p>&copy;2024 웹툰. A R R.</p>
