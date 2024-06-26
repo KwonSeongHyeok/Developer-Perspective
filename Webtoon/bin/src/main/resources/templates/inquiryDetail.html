@@ -7,7 +7,6 @@
 rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
 crossorigin="anonymous">
 <link rel="stylesheet" href="/css/main.css">
-<link rel="stylesheet" href="/css/Dtail.css">
 </head>
 
 <body>
@@ -68,29 +67,34 @@ crossorigin="anonymous">
         </div>
     </nav>
 
-	 <header>
-        <h1>건의 사항</h1>
-    </header>
-   
-    <div class="containers">
-       
-        <div class="posts">
-            <img class="image-thumbnail" src="https://photo.coolenjoy.co.kr/data/editor/1907/thumb-Bimg_252cd02821e90181a9e4867f4780dcc2_hgvm.jpg">
-        </div><!--posts-->
-
-        <div class="aside">
-        
-     	<h1 th:text="'[ 작성일 ] : ' +  ${inquiry.inquiry_createDate}"></h1><hr>
-    	<h1 th:text=" '[ 제목 ] : ' + ${inquiry.inquiry_title}"></h1><hr>
-		<h1 th:text="'[ 작성자 ] : ' + ${inquiry.inquiry_writer}"></h1><hr>
-     	<h1>[ 문의내용 ]</h1><hr>
-		<h2 th:text="${inquiry.inquiry_massage}"></h2>
+	<div class="container">
+	
+	<div class="leftImg">
 		
-        </div><!--aside-->
-        
-    </div>
-       
-
+	</div>
+	
+	<div class="rightView">
+	<table>
+		<thead>
+			<tr>
+				<th>제목</th>
+				<th>작성자</th>
+				<th>이메일</th>
+				<th>글 내용</th>
+			</tr>
+		</thead>
+		<tbody>	
+		<tr>
+			<td th:text="${inquiry.inquiry_title}"></td>
+			<td th:text="${inquiry.inquiry_writer}"></td>
+			<td th:text="${inquiry.inquiry_email}"></td>
+			<td th:text="${inquiry.inquiry_massage}"></td>
+		</tr>
+		</tbody>
+	</table>
+	
+	</div>
+	</div>
 	
 	<footer class="footer mt-5">
             <div class="container text-center">

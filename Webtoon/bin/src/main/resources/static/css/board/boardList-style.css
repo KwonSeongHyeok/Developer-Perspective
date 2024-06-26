@@ -1,15 +1,8 @@
 .board-name{
-   font-weight:bold;
-        font-size : 50px;
-        text-align: center;
-        padding: 40px;
+    font-size : 2em;
+    margin : 20px 0;
  }
-  header {
-            background-image: linear-gradient(to right, black, darkblue);
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-        }
+ 
  a{
      text-decoration: none;
      color : black;
@@ -31,6 +24,7 @@
      font-size: 2.5em;
  }
  
+ 
  .list-wrapper{
      min-height: 670px;
      width: 100%;
@@ -42,7 +36,7 @@
      border-collapse: collapse;
  }
  /*테이블바 색깔*/
- .list-table > thead{ background-color: darkblue; color: white;} 
+ .list-table > thead{ background-color: #455ba8; color: white;} 
  
  
  .list-table tr{
@@ -176,7 +170,6 @@
  
  .list-table tr > td:nth-of-type(2){
      position: relative;
-     text-align: center;
  }
  
  /* 모달 */
@@ -215,7 +208,8 @@
      max-height: 100%;
  }
  
-
+ /* @keyframes : 
+ 애니메이션 중간중간의 특정 지점들을 거칠 수 있는 키프레임들을 설정함으로써 CSS 애니메이션 과정의 중간 절차를 제어할 수 있게 합니다.  */
  @keyframes show {
      from {opacity: 0;}
      to {opacity: 1;}

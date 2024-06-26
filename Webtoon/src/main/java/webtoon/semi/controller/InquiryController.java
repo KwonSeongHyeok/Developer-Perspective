@@ -24,17 +24,10 @@ public class InquiryController {
 	@PostMapping("/register-inquiry")
 	public String insertInquiry(Inquiry inquiry, Model model) {
 		inquiryService.insertInquiry(inquiry);
-		List<Inquiry> idTitleList = inquiryService.getIdTitleInquiry();
-		log.info("값 가져오는지 확인하기 " + idTitleList);
-		model.addAttribute("idTitleList",idTitleList);
-		model.addAttribute("msg","등록이 완료되었습니다.");
-		return "inquiryBoard";
-	}
-	
-	@GetMapping("/inquiryBoard")
-	public String getIdTitleInquiry(Model model) {
-		List<Inquiry> idTitleList = inquiryService.getIdTitleInquiry();
-		model.addAttribute("idTitleList",idTitleList);
+		
+		List<Inquiry> iList = inquiryService.getAllInquiry();
+		log.info("값 가져오는지 확인하기 " + iList);
+		model.addAttribute("iList",iList);
 		return "inquiryBoard";
 	}
 	

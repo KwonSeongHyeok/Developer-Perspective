@@ -6,7 +6,7 @@
         padding: 40px;
         }
         header {
-            background-image: linear-gradient(to right, black, darkblue);
+            background-image: linear-gradient(to right, green, yellow);
             color: white;
             text-align: center;
             padding: 10px 0;
@@ -24,12 +24,10 @@
         .mb-3 {
         font-weight: bold;
         font-size: 30px;
-        padding: 10px;
         }
         .mb-4 {
 	         font-weight: bold;
 	         font-size: 40px;
-	         margin-top: 20px;
         }
         .btn {
         font-weight: bold;
