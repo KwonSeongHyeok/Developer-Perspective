@@ -5,6 +5,8 @@ table {
 	border: 2px solid gray;
 	border-collapse: collapse;
 	
+	margin-bottom : 30px;
+	
 }
 
 thead tr {
@@ -18,4 +20,19 @@ th, td{
 
 body {
 	margin: 0;
+}
+
+a{
+	text-decoration:none;
+	background-color : #333;
+	color: white;
+	padding:10px;
+	border-radius:5px;
+	
+	margin:10px;
+	
+}
+
+a:hover{
+	background-color : orange;
 }

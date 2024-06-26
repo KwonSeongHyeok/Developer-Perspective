@@ -17,6 +17,7 @@
 	
 	<select id="getAllMember" resultType="webtoon.semi.dto.Member"><!-- id MemberMapper.java 메서드와 일치 -->
 		SELECT * FROM member
+		ORDER BY mem_code
 	</select>
 	
 	<!-- 로그인 아이디 패스워드 받아서진행 -->

@@ -28,6 +28,10 @@ button{
 	background-color:red;
 	color:white;
 }
+button:hover{
+	background-color:black;
+	cursor:pointer;
+}
 img{
 	width:400px;
 	margin-right:10px;

@@ -3,5 +3,8 @@ header, footer{
 			color: white;
 			padding: 1px;
 			text-align: center;
-			
+						
 		}
+footer{
+	margin-top:10px;
+}
