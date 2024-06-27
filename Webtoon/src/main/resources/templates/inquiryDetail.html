@@ -43,6 +43,10 @@ crossorigin="anonymous">
                         <a class="nav-link" href="#">도전만화 등록</a>
                     </li>
                     
+                    <li class="nav-item">
+                        <a class="nav-link" href="/inquiry-Board">문의 게시판</a>
+                    </li>
+                    
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Dropdown
@@ -54,13 +58,11 @@ crossorigin="anonymous">
                             <li><a class="dropdown-item" href="#">Something else here</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-                    </li>
+                 
                 </ul>
                 
-                <form class="d-flex" role="search">   <!-- 검색창 DB 연동에 대해서 생각 -->
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+               <form class="d-flex" role="search" th:action="@{/search-result}" method="post">   <!-- 검색창 DB 연동에 대해서 생각 -->
+                    <input class="form-control me-2" type="search" name="keyword" placeholder="제목 또는 작가 입력" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
                
