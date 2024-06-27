@@ -2,19 +2,15 @@ package webtoon.semi.dto;
 
 import lombok.*;
 
-@Getter
 @Setter
+@Getter
 @ToString
-@NoArgsConstructor
 @AllArgsConstructor
-
+@NoArgsConstructor
 public class Webtoon {
 	private int web_code;
 	private String web_name;
 	private String web_author;
-
-public class Webtoon {
-
 	private String web_genre;
 	private String web_summary;
 	private String web_story;
@@ -25,8 +21,4 @@ public class Webtoon {
 	private String web_finishYN;
 	private String web_completed_date;
 	private String web_challengeYN;
-	private String web_finishYN;
-	private String web_completed_date;
-	private String web_challengeYN;
-
 }

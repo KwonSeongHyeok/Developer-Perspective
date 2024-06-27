@@ -15,11 +15,16 @@ import webtoon.semi.service.InquiryService;
 
 @Controller
 @Slf4j
-
 public class InquiryController {
 	
 	@Autowired
 	private InquiryService inquiryService;
+	
+	// 문의게시판에서 문의작성폼으로 이동
+	@GetMapping("/inquiry_register")
+	public String boardreturn() {
+		return "redirect:/inquiryRegister";
+	}
 	
 	@PostMapping("/register-inquiry")
 	public String insertInquiry(Inquiry inquiry, Model model) {
@@ -31,7 +36,7 @@ public class InquiryController {
 		return "inquiryBoard";
 	}
 	
-	//title을 통한 정보조회 
+	//id를 통한 정보조회 
 	@GetMapping("/inquiry/{inquiry_id}")
 	//주소값이 변할 때는 변하는 변수를 {}로 감싸줌
 	//주소값으로 title을 가져와서 주소값에 지정된 타이틀 글자와 일치하는 db 값을 select
