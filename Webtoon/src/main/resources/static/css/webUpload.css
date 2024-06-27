@@ -1,0 +1,146 @@
+body {
+	background-color: #f2f2f2;
+	margin: 0;
+	padding: 0;
+	font-family: Pretendard, Helvetica, -apple-system, BlinkMacSystemFont,
+		"Apple SD Gothic Neo", "맑은 고딕", "Malgun Gothic", "돋움", Dotum,
+		sans-serif;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+/****** container Css ******/
+.container {
+	margin-top: 30px;
+	padding: 30px;
+	box-sizing: border-box;
+	width: 50%;
+	border: 1px solid rgb(207, 204, 204);
+	border-radius: 10px;
+	background-color: white;
+}
+
+.container div {
+	position: relative;
+	width: 500px;
+	margin-left: 5px;
+	margin-right: 10px;
+	margin-top: 20px;
+}
+
+.container .input-item {
+	display: flex;
+	width: 100%;
+}
+
+.input-item-text {
+	width: 100%;
+}
+
+.input-item > div:nth-child(1) {
+	width: 20%;
+}
+
+.input-item  > div:nth-child(2) {
+	width: 80%;
+}
+
+.input-file-button{
+  padding: 6px 25px;
+  background-color:#FF6600;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+}
+
+#preview {
+	width: 30%;
+}
+
+.container button{
+	width:100%;
+}
+
+
+/****** NavBar Css ******/
+nav {
+	border: 2px solid gray;
+	border-radius: 5px;
+}
+
+.container-fluid {
+	padding: 20px;
+}
+
+.container-fluid img {
+	margin-right: 15px;
+	width: 100px;
+	height: 100px;
+}
+
+.brand-title {
+	margin-right: 20px;
+	font-size: 50px;
+}
+
+.brand-title a {
+	font-weight: bold;
+}
+
+.d-flex {
+	margin-right: 10px;
+}
+
+.form-control {
+	
+}
+
+li {
+	margin-top: 20px;
+	font-size: 20px;
+}
+
+.nav-item {
+	padding: 20px;
+}
+
+.navbar-dark {
+	background-color: #343a40;
+}
+
+.navbar-dark .navbar-brand, .navbar-dark .nav-link, .navbar-dark .navbar-toggler-icon,
+	.navbar-dark .form-control, .navbar-dark .btn-outline-success {
+	color: #ffffff;
+}
+
+.navbar-dark .nav-link:hover, .navbar-dark .navbar-brand:hover,
+	.navbar-dark .btn-outline-success:hover {
+	color: black;
+	font-weight: bold;
+}
+
+.navbar-dark .form-control {
+	background-color: #495057;
+	border-color: #6c757d;
+}
+
+.navbar-dark .btn-outline-success {
+	border-color: #6c757d;
+}
+
+li:hover {
+	background-color: orange;
+	border-radius: 3px;
+}
+
+/****** Footer Css ******/
+.footer {
+	background-color:#212529;
+	color: white;
+	padding: 5px;
+}
+
+.footer a {
+	color: white;
+	text-decoration: none;
+}
