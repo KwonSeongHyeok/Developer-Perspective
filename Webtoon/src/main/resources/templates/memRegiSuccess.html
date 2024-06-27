@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8" />
+    <title>Success</title>
+    <style>
+      h1 {
+        color: green;
+      }
+      a {
+        text-decoration: none;
+        background-color: #333;
+        color: white;
+        padding: 10px;
+        border-radius: 5px;
+
+        margin: 10px;
+      }
+
+      a:hover {
+        background-color: orange;
+      }
+    </style>
+  </head>
+  <body>
+	
+    <h1 th:text="${msg}"></h1>
+    
+    <a href="/">메인으로 돌아가기</a>
+
+  </body>
+</html>

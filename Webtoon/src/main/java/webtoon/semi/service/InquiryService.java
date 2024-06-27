@@ -6,14 +6,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import webtoon.semi.dto.Inquiry;
+
 import webtoon.semi.dto.Webtoon;
 import webtoon.semi.mapper.InquiryMapper;
 
 @Service
 public class InquiryService {
 	
-
 	@Autowired
+	private InquiryMapper inquiryMapper;
+	// insert 값 받아오기
+	public void insertInquiry(Inquiry inquiry) {//dto.Member import(다른import주의)
+		inquiryMapper.insertInquiry(inquiry);
+	}
+	
+	// 모든 정보 select
 	private InquiryMapper inquiryMapper; // 맵퍼 객체 생성 
 	
 	// insert 값 받아오기
@@ -25,8 +32,7 @@ public class InquiryService {
 	public List<Inquiry> getAllInquiry(){
 		return inquiryMapper.getAllInquiry();
 	}
-	
-	//getInquiryByTitle
+
 	public Inquiry getInquiryById(int inquiry_id) {
 		return inquiryMapper.getInquiryById(inquiry_id);
 	}

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>Webtoon Upload</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link rel="stylesheet" href="/css/webUpload.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+</head>
+<body>
+ <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+           
+            <a class="navbar-brand" href="#">  <!-- 브랜드 이미지 -->
+		      <img src="https://cdn.icon-icons.com/icons2/3915/PNG/512/yourtraveldottv_logo_icon_249126.png" 
+		      alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+     		 </a>
+     		 
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="brand-title">
+            	<a style="color:white">WebToon</a>
+            </div>
+            
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/webtoon-Main">웹툰</a>
+                    </li>
+                  
+                    <li class="nav-item">
+                        <a class="nav-link" href="/web-register">도전만화 등록</a>
+                    </li>
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Dropdown
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                    
+                </ul>
+                
+                <form class="d-flex" role="search">   <!-- 검색창 DB 연동에 대해서 생각 -->
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+                
+                <button>로그인</button>
+                <a href="#">회원가입</a>
+                
+            </div>
+        </div>
+    </nav>
+
+
+
+
+	<div class="container">
+
+		<h1>웹툰 업로드</h1>
+		
+		<form action="/web-upload" method="post" enctype="multipart/form-data">
+			<div class="input-item">
+				<div>
+				<label>작품명   </label>
+				</div>
+				<div>
+				<input type="text" th:field="${w.web_name}" required class="input-item-text">
+				</div>
+			</div>
+			<div class="input-item">
+				<div>
+				<label>작가이름 / 닉네임  </label>
+				</div>
+				<div>
+				<input type="text" th:field="${w.web_author}" required class="input-item-text">
+				</div>
+			</div>
+			<div class="radio input-item">
+				<div>
+				<label>장르  </label><br>
+				</div>
+				<div>
+				<label><input type="radio" name="장르" value="액션" th:field="${w.web_genre}" required> 액션</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<label><input type="radio" name="장르" value="판타지" th:field="${w.web_genre}" required> 판타지</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<label><input type="radio" name="장르" value="스릴러" th:field="${w.web_genre}" required> 스릴러</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<label><input type="radio" name="장르" value="로맨스" th:field="${w.web_genre}" required> 로맨스</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<label><input type="radio" name="장르" value="일상" th:field="${w.web_genre}" required> 일상</label>
+				<br><br>
+				<label><input type="radio" name="장르" value="개그" th:field="${w.web_genre}" required> 개그</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<label><input type="radio" name="장르" value="무협/사극" th:field="${w.web_genre}" required> 무협/사극</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<label><input type="radio" name="장르" value="드라마" th:field="${w.web_genre}" required> 드라마</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<label><input type="radio" name="장르" value="감성" th:field="${w.web_genre}" required> 감성</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<label><input type="radio" name="장르" value="스포츠" th:field="${w.web_genre}" required> 스포츠</label>		
+				</div>
+			</div>
+			<br>
+			<div class="input-item">
+				<div>
+				<label>작품 한 줄 요약  </label>
+				</div>
+				<div>
+				<input type="text" th:field="${w.web_summary}" required placeholder="작품을 한 줄로 소개해 주세요." class="input-item-text">
+				</div>
+			</div>
+			<div  class="input-item">
+				<div>
+				<label>줄거리  </label>
+				</div>
+				<div>
+				<textarea rows="5" th:field="${w.web_story}" required placeholder="작품의 줄거리를 작성해주세요." class="input-item-text"></textarea>
+				</div>
+			</div>
+			<div class="radio input-item">
+				<div>
+				<label>연재요일/희망요일  </label><br>
+				</div>
+				<div>
+				<label><input type="radio" name="요일" value="월요일" th:field="${w.web_day}" required> 월요일</label>&nbsp;&nbsp;&nbsp;&nbsp;
+				<label><input type="radio" name="요일" value="화요일" th:field="${w.web_day}" required> 화요일</label>&nbsp;&nbsp;&nbsp;&nbsp;
+				<label><input type="radio" name="요일" value="수요일" th:field="${w.web_day}" required> 수요일</label>&nbsp;&nbsp;&nbsp;&nbsp;
+				<label><input type="radio" name="요일" value="목요일" th:field="${w.web_day}" required> 목요일</label>&nbsp;&nbsp;&nbsp;&nbsp;
+				<label><input type="radio" name="요일" value="금요일" th:field="${w.web_day}" required> 금요일</label>&nbsp;&nbsp;&nbsp;&nbsp;
+				<label><input type="radio" name="요일" value="토요일" th:field="${w.web_day}" required> 토요일</label>&nbsp;&nbsp;&nbsp;&nbsp;
+				<label><input type="radio" name="요일" value="일요일" th:field="${w.web_day}" required> 일요일</label>	
+				</div>
+			</div>
+			<br>
+			<div class="radio input-item">
+				<div>
+				<label>도전여부  </label><br>
+				</div>
+				<div>
+				<label><input type="radio" name="도전여부" value="Y" th:field="${w.web_challengeYN}" required> Y</label>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<label><input type="radio" name="도전여부" value="N" th:field="${w.web_challengeYN}" required> N</label>	
+				</div>
+			</div>
+			<div class="filebox input-item">	
+				<div>
+				<label>대표 이미지  </label>
+				</div>
+				<div>
+				<input type="file" class="form-control" th:field="${w.web_image_path}" required onchange="readURL(this);"> 
+				<img id="preview"/>
+				</div>	
+			</div>
+			<br>
+			<button class="btn btn-success">업로드</button>
+		</form>
+	</div>
+
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+	<script>
+	function readURL(input) {
+		  if (input.files && input.files[0]) {
+		    var reader = new FileReader();
+		    reader.onload = function(e) {
+		      document.getElementById('preview').src = e.target.result;
+		    };
+		    reader.readAsDataURL(input.files[0]);
+		  } else {
+		    document.getElementById('preview').src = "";
+		  }
+		}
+	</script>
+
+
+	<footer class="footer mt-5 relative-bottom">
+            <div class="text-center">
+              <p>&copy; 2024 KH-T Webtoon. All Teemplay Semi-Project.</p>
+              <p><a href="#">개인정보처리방침</a> | <a href="#">이용약관</a> | <a href="inquiry">건의사항 등록</a></p>
+            </div>
+     </footer>
+
+
+</body>
+</html>
