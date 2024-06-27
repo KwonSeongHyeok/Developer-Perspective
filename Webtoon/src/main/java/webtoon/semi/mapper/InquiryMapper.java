@@ -15,7 +15,6 @@ public interface InquiryMapper {
 
 =======
 import org.apache.ibatis.annotations.Param;
-
 import webtoon.semi.dto.Inquiry;
 import webtoon.semi.dto.Webtoon;
 
@@ -27,7 +26,7 @@ public interface InquiryMapper {
 	List<Inquiry> getAllInquiry();
 	//title을 통한 정보조회
 	Inquiry getInquiryById(int inquiay_id);
-	//키워로 검색
+	//키워드로 검색
 	List<Webtoon> searchWebtoon(@Param("keyword") String keyword);
 	
 >>>>>>> myungjun12-register
