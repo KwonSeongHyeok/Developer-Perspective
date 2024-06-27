@@ -1,6 +1,8 @@
 <!DOCTYPE html>
+<!--alt shift f 자동정렬-->
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+<<<<<<< HEAD
 <meta charset="utf-8">
 <title>Dark Mode Navbar</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
@@ -139,5 +141,55 @@ crossorigin="anonymous">
             
 =======
 >>>>>>> 921ed26fe3487c968fdf5032d98fb4a892c2e508
+=======
+	<meta charset="utf-8" />
+	<title>(index-수정예정)-회원가입/정보보기 페이지</title>
+	<link rel="stylesheet" href="/css/headerFooter.css">
+	<link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+	<header>
+		<h1>전체회원/회원가입/로그인</h1>
+		<nav></nav>
+	</header>
+
+	<div class="nav_login">
+		<div th:if="${session.loginSession != null}">
+			<p th:text="${session.loginSession.mem_name} + ' 님 환영합니다.' "></p>
+			<a href="/logout">로그아웃</a> <a href="/myPage">마이페이지</a>
+		</div>
+	</div>
+
+	<div class="container">
+		<div th:if="${session.loginSession == null}">
+			<p>현재 로그아웃 상태</p>
+
+			<span class="member-view">
+				<button onclick="location.href='/member-list'">멤버보기</button>
+				<!-- 누르면 http://localhost:8181/member-list 로 감 -->
+			</span>
+
+			<span class="register-link">
+				<button onclick="location.href='/memberRegister'">가입하러가기</button>
+				<!-- /부분 Controller @GetMapping("/")과같게 -->
+				<!-- 누르면 http://localhost:8181/memberRegister 로 감 -->
+				<!-- a href = "/memberRegister" 에서 버튼으로 수정 -->
+			</span>
+			
+			<span>
+				<button onclick="location.href='/login'">로그인하기</button>
+			</span>
+		</div>
+		<div class="sideDiv">
+			<h3>광고</h3>
+			<img src="images/pig_imggg.jpg">
+		</div>
+
+	</div>
+
+	<footer>
+		<p>&copy;2024 웹툰 . All Rights Reserved.</p>
+	</footer>
+>>>>>>> hyojinkim-memberRegister
 </body>
 </html>
