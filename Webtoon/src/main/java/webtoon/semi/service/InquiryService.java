@@ -12,6 +12,7 @@ import webtoon.semi.mapper.InquiryMapper;
 @Service
 public class InquiryService {
 	
+
 	@Autowired
 	private InquiryMapper inquiryMapper; // 맵퍼 객체 생성 
 	
@@ -34,5 +35,4 @@ public class InquiryService {
 	public List<Webtoon> searchWebtoon(String keyword){
 		return inquiryMapper.searchWebtoon(keyword);
 	}
-	
 }
