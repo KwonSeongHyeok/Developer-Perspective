@@ -97,6 +97,15 @@
 							<td th:text="${i.inquiry_writer}"></td>
 							<td th:text="${i.inquiry_createDate}"></td>
 						</tr>
+						
+						<tr th:each="i : ${result}">
+							<td th:text="${i.inquiry_id}"></td>
+							<td class="board-titles"><a th:text="${i.inquiry_title}"
+								th:href="@{'/inquiry/' + ${i.inquiry_id}}"></a></td>
+							<td th:text="${i.inquiry_writer}"></td>
+							<td th:text="${i.inquiry_createDate}"></td>
+						</tr>
+						
 					</tbody>
 				</table>
 
@@ -107,20 +116,20 @@
 				<button onclick="location.href='/inquiry_register'">글쓰기</button>
 				
 			</div>
-
+		
 			<!-- 검색창 -->
-			<form action="#" method="get" id="boardSearch">
+			<form th:action="@{/boardSearch-result}" method="post" id="boardSearch">
 
-				<select name="key" id="searchKey">
-					<option value="">제목</option>
-					<option value="">내용</option>
-					<option value="">제목+내용</option>
-						
-					<option value="">작성자</option>
-				</select> <input type="text" name="query" id="searchQuery"
-					placeholder="검색어를 입력해주세요.">
+				<select>
+					<option id="title">제목</option>
+					<!--<option value="">내용</option>
+					    <option value="">제목+내용</option>-->
+					<option id="writer">작성자</option>
+				</select> 
+				<input type="text" name="keyword" placeholder="작성자 또는 제목을 검색하세요.">
 
 				<button>검색</button>
+				
 			</form>
 
 		</section>

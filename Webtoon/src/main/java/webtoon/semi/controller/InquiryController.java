@@ -8,9 +8,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import lombok.extern.slf4j.Slf4j;
 import webtoon.semi.dto.Inquiry;
+import webtoon.semi.dto.Webtoon;
 import webtoon.semi.service.InquiryService;
 
 @Controller
@@ -45,5 +47,30 @@ public class InquiryController {
 		model.addAttribute("inquiry",inquiry);
 		return "inquiryDetail";
 	}
+	
+	
+	
+	
+	
+	//문의게시판 검색하기 경로
+	@PostMapping("/boardSearch-result")
+	public String boardSearch(Model model, @RequestParam("keyword") String keyword) {
+		List<Inquiry> inquiry = inquiryService.boardSearch(keyword);
+		model.addAttribute("result",inquiry);
+		log.info("게시판 검색 정보확인 : " + inquiry);
+		
+		if(inquiry == null) {
+			return "redirect:/";
+		}
+		return "inquiryBoard";
+	}
+
+	// search 버튼 이동 경로 설정
+
+	@GetMapping("/boardSearch-result")
+	public String boardSearchView() {
+	
+	return "inquiryBoard";
+}
 	
 }
