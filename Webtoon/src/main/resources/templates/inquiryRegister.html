@@ -8,7 +8,6 @@ rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bR
 crossorigin="anonymous">
 <link rel="stylesheet" href="/css/main.css">
 <link rel="stylesheet" href="/css/inquiry.css">
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js"></script> <!-- jQuery -->
 
 </head>
 <body>
@@ -35,85 +34,110 @@ crossorigin="anonymous">
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="/">Home</a>
                     </li>
+                    
                     <li class="nav-item">
-                        <a class="nav-link" href="/webtoon-Main">웹툰</a>
+                        <a class="nav-link" href="/allSnack">웹툰</a>
+                    </li>
+                  
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">도전만화 등록</a>
+                    </li>
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Dropdown
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/web-register">도전만화 등록</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/inquiry-Board">문의 게시판</a>
+                        <a class="nav-link disabled" aria-disabled="true">Disabled</a>
                     </li>
                 </ul>
-
-                <form class="d-flex" role="search" th:action="@{/search-result}" method="post">   <!-- 검색창 DB 연동에 대해서 생각 -->
-                    <input class="form-control me-2" type="search" name="keyword" placeholder="제목 또는 작가 입력" aria-label="Search">
+                
+                <form class="d-flex" role="search">   <!-- 검색창 DB 연동에 대해서 생각 -->
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
-
-                <div class="nav_login">
-					<div th:if="${session.loginSession != null}">
-						<p th:text="${session.loginSession.mem_name} + ' 님 환영합니다.' "></p>
-						<a href="/logout">로그아웃</a> <a href="/myPage">마이페이지</a>
-					</div>
-				</div>
-				<div th:if="${session.loginSession == null}">
-                <a href="/login">로그인</a>
-
-                <a href="/memberRegister">회원가입</a>
-                </div> 
+                
             </div>
         </div>
     </nav>
 
-	<header>
-		<h1>웹툰 고객센터</h1>
-	</header>
+
 	
+    <div class="boxs">
+        
         <div class="posts">
+
                 <!-- article : 블로그나 글, 뉴스 기사, 포럼 게시물 등과 같이 독립적으로
                                작성하거나 재사용할 수 있는 내용을 작성할 때 사용 -->
         <div class="article">
         <div class="container mb-5">
-        <h2 class="mb-4">[ 건의 사항 ]</h2>
-        <hr>
-        
-        <form th:action="@{/register-inquiry}" method="post" th:object="${inquiry}">
+        <h2 class="mb-4">글 작성</h2>
+        <form>
             
             <div class="mb-3">
                 <label class="form-label">제목</label>
-                <input type="text" class="form-control" th:field="*{inquiry_title}" required>
+                <input type="text" class="form-control" required>
             </div>
             
             <div class="mb-3">
                 <label class="form-label">작성자</label>
-                <input type="text" class="form-control" th:field="*{inquiry_writer}" required>
-            </div>
-            
-            <div class="mb-3">
-                <label class="form-label">이메일</label>
-                <input id="email" type="email" class="form-control" th:field="*{inquiry_email}" required>
-                 <p id="정규식메세지"></p>
+                <input type="text" class="form-control" required>
             </div>
             
             <div class="mb-3">
                 <label class="form-label">내용</label>
-                <textarea class="form-control" rows="5" th:field="*{inquiry_massage}" required></textarea>
+                <textarea type="text" class="form-control" rows="5" required></textarea>
             </div>
-            
-              <div class="mb-3">
-                <label class="form-label">개인정보수집 동의 : </label>
-                <input type="radio" name="privacy" value="Y" th:field="*{inquiry_privacy}" />동의함 
-                <input type="radio" name="privacy" value="N" th:field="*{inquiry_privacy}" />동의하지않음
-            </div>
-              
 			<button type="submit" class="btn btn-dark">작성</button>
         </form>
     </div>
     </div>
 
+                
+
+        </div><!--posts-->
+
+        <!-- aside : 본문 내용과 간접적으로 관련된 내용을 표시할 때 사용
+                    예를 들어 블로그 페이지의 사이드 바, 광고, 관련 링크, 저자정보 등 -->
+        <div class="aside">
+            <h2>소개</h2>
+            <p>
+                안녕하세요. 저의 블로그입니다. 제 블로그에 오신 것을 환영합니다.
+                여기서 다양한 생각과 경험을 공유합니다.
+            </p>
+        </div><!--aside-->
+
+       
+
     </div><!--boxs-->
         
+	<!--  
+	<table border="1">
+		<thead>
+			<tr>
+				<th>회사ID</th>
+				<th>회사이름</th>
+				<th>회사주소</th>
+				<th>회사번호</th>
+			</tr>
+		</thead>
+		<tbody>  ${} DB에 있는 이름과 같게 
+			<tr th:each=" c : ${comList}">
+				<td th:text="${c.company_id}"></td> 
+				<td th:text="${c.company_name}"></td>
+				<td th:text="${c.company_address}"></td>
+				<td th:text="${c.company_phone}"></td>
+			</tr>
+		</tbody>
+	</table>
+	-->
 	
 	 <footer class="footer mt-5">
             <div class="container text-center">
@@ -125,25 +149,5 @@ crossorigin="anonymous">
 	 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
             crossorigin="anonymous"></script>
-     
-     <script>
-     //이메일 정규식 js
-      $(document).ready(function () {
-        $("#email").on("input", function () {
-          const email = $(this).val();
-          const 정규식 = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-
-          //만약에 이메일이 정규식에 적합한지 테스트 했을때 적합하다면
-          if (정규식.test(email)) {
-            $("#정규식메세지").text("이메일 형식이 올바릅니다.").css("color", "green");
-          } else {
-            $("#정규식메세지").text("이메일 형식이 올바르지 않습니다.").css("color", "red");
-          }
-        });
-      });
-  
-     
-    </script>
-    
 </body>
 </html>
