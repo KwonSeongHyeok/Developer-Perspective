@@ -1,22 +1,18 @@
 package webtoon.semi.controller;
 
 import java.util.List;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Random;
-import java.util.Set;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+
 
 import webtoon.semi.dto.Inquiry;
 import webtoon.semi.dto.Member;
 import webtoon.semi.service.InquiryService;
-import webtoon.semi.service.WebtoonService;
 
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import lombok.extern.slf4j.Slf4j;
@@ -29,17 +25,16 @@ public class IndexController {
 	@Autowired
 	private InquiryService inquiryService;
 	
-
-	@Autowired
-	private WebtoonService webtoonService;
-
-	//메인에서 문의게시판 이동
+	//메인에서 문의게시판 이동 
+	//이동할때 DB안에 저장되어 있는 정보 조회해서 보여줄 것
 		@GetMapping("/inquiry-Board")
-		public String inquiryBoard() {
+		public String inquiryBoard(Model model) {
+			List<Inquiry> inquiry = inquiryService.getAllInquiry();
+			model.addAttribute("iList",inquiry);
 			return "inquiryBoard";
 		}
 		
-		//사용자 문의 입력창에 기본 필드 전달
+		//사용자 문의 <form>태그에 기본 필드 전달
 		@GetMapping("/inquiryRegister")
 		public String inquiryRegister(Model model) {
 			
@@ -62,12 +57,15 @@ public class IndexController {
 			}
 		
 			// search 버튼 이동 경로 설정
+		
 		@GetMapping("/search-result")
 		public String searchView() {
 			
 			return "searchResult";
 		}
-
+		
+		
+		
 	@GetMapping("/memberRegister")//index.html의 a href="/"와 같게
 	public String memberRegister(Model model) {
 		
@@ -80,8 +78,3 @@ public class IndexController {
 	}
 	
 }
-
-
-
-
-

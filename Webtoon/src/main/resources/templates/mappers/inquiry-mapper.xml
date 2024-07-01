@@ -26,10 +26,17 @@
 		WHERE INQUIRY_ID = #{inquiry_id}
 	</select>
 	
-	<!--  -->
+	<!-- 메인에서 작가이름 웹툰이름을 통한 검색 -->
 	<select id="searchWebtoon" resultType="webtoon.semi.dto.Webtoon" parameterType="String">
 		SELECT * FROM webtoon
 		WHERE WEB_NAME   LIKE '%' || #{keyword} || '%'
 		OR 	  WEB_AUTHOR LIKE '%' || #{keyword} || '%'
+	</select>
+	
+	<!-- 문의게시판에서 이름 제목을 통한 검색 -->
+	<select id="boardSearch" resultType="webtoon.semi.dto.Inquiry" parameterType="String">
+	SELECT * FROM inquiry
+	WHERE inquiry_title   LIKE '%' || #{keyword} || '%'
+	OR 	  inquiry_writer LIKE '%' || #{keyword} || '%'
 	</select>
 </mapper>

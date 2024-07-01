@@ -1,4 +1,3 @@
-
 body {
 	background-color: #f2f2f2;
 	margin: 0;
@@ -14,7 +13,6 @@ body {
 /***** container *****/
 .container{
 	width: 100%;
-	heith: auto;
 	margin-top: 10px;
 }
 .container .title span {
@@ -55,6 +53,8 @@ body {
 	font-weight: 900;
 }
 
+
+
 /****** NavBar Css ******/
 nav {
 	border: 2px solid gray;
@@ -84,9 +84,8 @@ nav {
 	margin-right: 10px;
 }
 
-.form-control {
 	
-}
+	
 
 li {
 	margin-top: 20px;
@@ -174,3 +173,5 @@ li:hover {
 	/* 마우스를 a 태그 위에 올리면 아래에 줄이 생김 */
 	text-decoration: underline;
 }
+   
+  

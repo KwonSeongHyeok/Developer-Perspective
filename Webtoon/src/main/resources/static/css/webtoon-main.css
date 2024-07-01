@@ -43,6 +43,7 @@ body {
 }
 
 
+
 /******** nav ***********/
 .logRegi{
 	display:flex;
@@ -77,22 +78,14 @@ body {
 }
 
 
-
 /****** footer ******/
 .footer {
-	background-color: #212529;
+	background-color: #343a40;
 	color: white;
 	padding: 5px;
-	border: 2px solid gray;
-	border-radius: 5px;
-	text-align: center;
 }
 
 .footer a {
 	color: white;
 	text-decoration: none;
-}
-
-.footer a:hover {
-	text-decoration: underline;
 }

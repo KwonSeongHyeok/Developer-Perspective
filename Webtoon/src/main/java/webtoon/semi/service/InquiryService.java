@@ -30,9 +30,13 @@ public class InquiryService {
 		return inquiryMapper.getInquiryById(inquiry_id);
 	}
 	
-	//search
+	//메인 search
 	public List<Webtoon> searchWebtoon(String keyword){
 		return inquiryMapper.searchWebtoon(keyword);
 	}
 	
+	//게시판 search
+    public List<Inquiry> boardSearch(String keyword){
+    	return inquiryMapper.boardSearch(keyword);
+    }
 }

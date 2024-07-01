@@ -16,7 +16,9 @@ public interface InquiryMapper {
 	List<Inquiry> getAllInquiry();
 	//title을 통한 정보조회
 	Inquiry getInquiryById(int inquiay_id);
-	//키워로 검색
+	//메인 검색창 검색
 	List<Webtoon> searchWebtoon(@Param("keyword") String keyword);
+	//게시판 검색창 검색
+	List<Inquiry> boardSearch(@Param("keyword") String keyword);
 	
 }
