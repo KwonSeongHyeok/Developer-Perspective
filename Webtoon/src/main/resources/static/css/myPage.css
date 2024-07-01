@@ -1,0 +1,53 @@
+
+table {
+	width: 100%;
+}
+th, tr {
+	border: 3px solid black;
+}
+
+th {
+	width: 50%;
+}
+.sideDiv{
+	flex:1;
+	display: flex;
+}
+.asides{
+	 flex: 1.5;
+     background-color: white;
+     border-radius: 5px;
+     box-shadow: 0 0 10px gray;
+     
+     height: 1100px;
+}
+
+.ps {
+	background-color:aliceblue;
+	width:100%;
+	padding:10px;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.infoDiv{
+	text-align: center;
+}
+
+	
+
+button{
+	border:none;
+	border-radius:5px;
+	padding:10px;
+	background-color:red;
+	color:white;
+	width: 100%;
+}
+button:hover{
+	background-color:black;
+	cursor:pointer;
+}
+img{
+	width:430px;
+}
