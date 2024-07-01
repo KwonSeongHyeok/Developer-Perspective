@@ -15,3 +15,4 @@ mem_gender VARCHAR2(10)
 CREATE SEQUENCE member_seq
 START WITH 1
 INCREMENT BY 1;
+commit;

@@ -1,21 +1,16 @@
 package webtoon.semi.controller;
 
-import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Random;
-import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+
 
 import webtoon.semi.dto.Inquiry;
 import webtoon.semi.dto.Member;
 import webtoon.semi.service.InquiryService;
-import webtoon.semi.service.WebtoonService;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -29,9 +24,6 @@ public class IndexController {
 	
 	@Autowired
 	private InquiryService inquiryService;
-	
-	@Autowired
-	private WebtoonService webtoonService;
 	
 	//메인에서 문의게시판 이동
 		@GetMapping("/inquiry-Board")
@@ -78,10 +70,5 @@ public class IndexController {
 		
 		return "memberRegister";//memberRegister.html로연결
 	}
-
+	
 }
-
-
-
-
-
