@@ -2,11 +2,11 @@ package webtoon.semi.dto;
 
 import lombok.*;
 
-@Getter
 @Setter
+@Getter
 @ToString
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 public class Webtoon {
 	private int web_code;
 	private String web_name;

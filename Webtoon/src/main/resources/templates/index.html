@@ -1,25 +1,26 @@
 <!DOCTYPE html>
+<!--alt shift f 자동정렬-->
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+
 <meta charset="utf-8">
-<title>Dark Mode Navbar</title>
+<title>웹툰 메인</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
 rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
 crossorigin="anonymous">
 <link rel="stylesheet" href="/css/main.css">
 
-<<<<<<< HEAD
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dongle&family=Jua&display=swap" rel="stylesheet">
 
-=======
->>>>>>> 921ed26fe3487c968fdf5032d98fb4a892c2e508
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
            
             <a class="navbar-brand" href="#">  <!-- 브랜드 이미지 -->
-		      <img src="https://cdn.icon-icons.com/icons2/3915/PNG/512/yourtraveldottv_logo_icon_249126.png" 
+		      <img src="/images/logo.jpg" 
 		      alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
      		 </a>
      		 
@@ -37,83 +38,84 @@ crossorigin="anonymous">
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="/">Home</a>
                     </li>
-                    
                     <li class="nav-item">
-<<<<<<< HEAD
                         <a class="nav-link" href="/webtoon-Main">웹툰</a>
                     </li>
-                  
                     <li class="nav-item">
-                        <a class="nav-link" href="/web-register">도전만화 등록</a>
-=======
-                        <a class="nav-link" href="/allSnack">웹툰</a>
+                        <a onclick="needLogin()" class="nav-link" href="/web-register">도전만화 등록</a>
                     </li>
-                  
                     <li class="nav-item">
-                        <a class="nav-link" href="#">도전만화 등록</a>
->>>>>>> 921ed26fe3487c968fdf5032d98fb4a892c2e508
+                        <a class="nav-link" href="/inquiry-Board">문의 게시판</a>
                     </li>
-                    
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Dropdown
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                    </li>
-                    
                 </ul>
-                
-                <form class="d-flex" role="search">   <!-- 검색창 DB 연동에 대해서 생각 -->
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+
+                <form class="d-flex" role="search" th:action="@{/search-result}" method="post">   <!-- 검색창 DB 연동에 대해서 생각 -->
+                    <input class="form-control me-2" type="search" name="keyword" placeholder="제목 또는 작가 입력" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
                 
-                <button>로그인</button>
-<<<<<<< HEAD
-                <a href="#">회원가입</a>
-=======
->>>>>>> 921ed26fe3487c968fdf5032d98fb4a892c2e508
-                
+                <div class="logRegi nav_login">
+					<div th:if="${session.loginSession != null}">
+						<p th:text="${session.loginSession.mem_name} + ' 님 환영합니다.' ">&nbsp;&nbsp;&nbsp;</p>
+						<a href="/logout">로그아웃</a> <a href="/myPage">마이페이지</a>
+					</div>
+					<div th:if="${session.loginSession == null}" >
+	                <a href="/login">로그인</a>
+	
+	                <a href="/memberRegister">회원가입</a>
+	                </div>
+                </div>
             </div>
         </div>
     </nav>
 
-<<<<<<< HEAD
+
+
+	<img class="main-flex" src="/images/main2.gif">
+	<img class="main-flex" src="/images/main2.gif">
+	<img class="main-flex" src="/images/main2.gif">
+
+
 	<div class="container">
+		<div class="title">
+			<h3>오늘의 추천 작품</h3>
+		</div>
+		<div>
+			<div class="row">
+			<div class="col-md-4" th:each=" w : ${webtoon}">
+					<div class="card">
+						<a th:href="@{'/Webtoon/' + ${w.web_code}}">
+							<img th:src="@{${w.web_image_path}}" class="card-img-top">
+							<span th:text="${w.web_name} + ' / ' + ${w.web_author}" ></span>
+							<p th:text="${w.web_summary}"></p>
+						</a>
+					</div>
+			</div>
+		</div>	
+		
+		</div>
+		
+		
 		
 	</div>
      
-        
-=======
-	
->>>>>>> 921ed26fe3487c968fdf5032d98fb4a892c2e508
-        
-        
+     
 
-
-
-<<<<<<< HEAD
-=======
-
->>>>>>> 921ed26fe3487c968fdf5032d98fb4a892c2e508
+     
+     
+     
+     
+     
 	 <footer class="footer mt-5">
-            <div class="container text-center">
+            <div class="text-center">
               <p>&copy; 2024 KH-T Webtoon. All Teemplay Semi-Project.</p>
-              <p><a href="#">개인정보처리방침</a> | <a href="#">이용약관</a> | <a href="inquiry">건의사항 등록</a></p>
+              <p><a href="#">개인정보처리방침</a> | <a href="#">이용약관</a> | <a href="/inquiryRegister">건의사항 등록</a></p>
             </div>
      </footer>
           
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
             crossorigin="anonymous"></script>
-<<<<<<< HEAD
-            
-=======
->>>>>>> 921ed26fe3487c968fdf5032d98fb4a892c2e508
+
 </body>
 </html>

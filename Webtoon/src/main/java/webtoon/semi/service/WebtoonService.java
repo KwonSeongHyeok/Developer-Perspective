@@ -2,7 +2,10 @@ package webtoon.semi.service;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Random;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,6 +22,12 @@ public class WebtoonService {
 	public List<Webtoon> getAllWebtoon(){
 		return webtoonMapper.getAllWebtoon();
 	}
+	
+	public List<Webtoon> showRandomWeb(){
+		return webtoonMapper.showRandomWeb();
+	}
+	
+	
 	
 	
 	//uploadWebtoon
@@ -82,4 +91,6 @@ public class WebtoonService {
 		return webtoonMapper.getWebByCode(web_code);
 	}
 	
+		
+
 }

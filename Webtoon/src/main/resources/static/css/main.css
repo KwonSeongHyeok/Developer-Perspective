@@ -1,16 +1,58 @@
-<<<<<<< HEAD
 body {
 	background-color: #f2f2f2;
 	margin: 0;
 	padding: 0;
 }
 
-.container{
-	width: 100%;
-
+.main-flex{
+	width:33%;
+	height: 250px;
 }
 
 
+/***** container *****/
+.container{
+	width: 100%;
+	heith: auto;
+	margin-top: 10px;
+}
+.container .title span {
+	font-weight: 700;
+  	font-style: normal;
+  	font-size: larger;
+}
+
+.container a{
+	color: black;
+	text-decoration: none;
+	font-size: small;
+}
+
+
+.card-img-top {
+	object-fit: cover;
+	height: 100%;
+}
+.card{
+	margin : 10px 10px 10px 10px;
+	box-shadow: 0 0 10px #343a40;
+}
+.card span{
+	text-align: justify;
+	font-family: "Jua", sans-serif;
+  	font-weight: 700;
+  	font-style: normal;
+  	margin-left:7px;
+  	font-size: 20px;
+}
+.card p{
+	text-align: justify;
+	margin:0 7px;
+	font-weight: 600;
+}
+.title h3{
+	font-weight: 900;
+}
 
 
 
@@ -23,7 +65,7 @@ nav {
 }
 
 .container-fluid {
-	padding: 20px;
+	padding: 10px;
 }
 
 .container-fluid img {
@@ -87,6 +129,36 @@ li:hover {
 	border-radius: 3px;
 }
 
+
+.logRegi{
+	display:flex;
+	flex-wrap:wrap;
+	color:white;
+	text-align: center;
+}
+
+.logRegi a, .nav_login a{
+	text-decoration:none;
+	border-radius:5px;
+	
+	background-color:#333;
+	color:white;
+	
+	padding:10px;
+	font-weight: bold;
+	
+	margin:5px;
+	
+}
+.logRegi a:hover, .nav_login a:hover{
+	background-color: orange;
+	
+}
+
+
+
+
+
 /****** Footer Css ******/
 .footer {
 	background-color: #212529;
@@ -105,92 +177,3 @@ li:hover {
 	/* 마우스를 a 태그 위에 올리면 아래에 줄이 생김 */
 	text-decoration: underline;
 }
-=======
-    /****** NavBar Css ******/
-    nav {
-    	border:2px solid gray;
-    	border-radius: 5px;
-    }
-    .container-fluid {
-    	padding: 20px;
-    }
-    .container-fluid img {
-    	margin-right: 15px;
-    	width: 100px;
-    	height: 100px;
-    }
-    .brand-title {
-    	margin-right:20px;
-    	font-size: 50px;
-    }
-    .brand-title a {
-    	font-weight: bold;
-    }
-    .d-flex {
-    	margin-right: 10px;
-    }
-    .form-control {
-    	
-    }
-     li {
-     	margin-top: 20px;
-    	font-size: 20px;
-     }
-     .nav-item {
-     	padding: 20px;
-     }
-    .navbar-dark {
-        background-color: #343a40;
-    }
-    .navbar-dark .navbar-brand,
-    .navbar-dark .nav-link,
-    .navbar-dark .navbar-toggler-icon,
-    .navbar-dark .form-control,
-    .navbar-dark .btn-outline-success {
-        color: #ffffff;
-    }
-    .navbar-dark .nav-link:hover,
-    .navbar-dark .navbar-brand:hover,
-    .navbar-dark .btn-outline-success:hover {
-        color: black;
-        font-weight: bold;
-    }
-    .navbar-dark .form-control {
-        background-color: #495057;
-        border-color: #6c757d;
-    }
-    .navbar-dark .btn-outline-success {
-        border-color: #6c757d;
-    }
-    
-    li:hover {
-    background-color: orange;
-    border-radius: 3px;
-    }
-    
-    
-    
-   
-    /****** Footer Css ******/
-    .footer {
-          background-color: #212529;
-          color: white;
-          padding: 40px 0; /* 16px */
-          position: relative;
-          width: 100%;
-          bottom: 0;
-          position : absolute; /*입력시 최하단 고정*/
-          border:2px solid gray;
-          border-radius: 5px; 
-        }
-  
-        .footer a {
-          color: white;
-          text-decoration: none;
-        }
-        .footer a:hover {
-          /* 마우스를 a 태그 위에 올리면 아래에 줄이 생김 */
-          text-decoration: underline;
-        }
-        
->>>>>>> 921ed26fe3487c968fdf5032d98fb4a892c2e508
