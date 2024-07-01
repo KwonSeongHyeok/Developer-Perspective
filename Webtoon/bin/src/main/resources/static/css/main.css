@@ -1,0 +1,85 @@
+    /****** NavBar Css ******/
+    nav {
+    	border:2px solid gray;
+    	border-radius: 5px;
+    }
+    .container-fluid {
+    	padding: 20px;
+    }
+    .container-fluid img {
+    	margin-right: 15px;
+    	width: 100px;
+    	height: 100px;
+    }
+    .brand-title {
+    	margin-right:20px;
+    	font-size: 50px;
+    }
+    .brand-title a {
+    	font-weight: bold;
+    }
+    .d-flex {
+    	margin-right: 10px;
+    }
+    
+     li {
+     	margin-top: 20px;
+    	font-size: 20px;
+     }
+     .nav-item {
+     	padding: 20px;
+     }
+    .navbar-dark {
+        background-color: #343a40;
+    }
+    .navbar-dark .navbar-brand,
+    .navbar-dark .nav-link,
+    .navbar-dark .navbar-toggler-icon,
+    .navbar-dark .form-control,
+    .navbar-dark .btn-outline-success {
+        color: #ffffff;
+    }
+    .navbar-dark .nav-link:hover,
+    .navbar-dark .navbar-brand:hover,
+    .navbar-dark .btn-outline-success:hover {
+        color: black;
+        font-weight: bold;
+    }
+    .navbar-dark .form-control {
+        background-color: #495057;
+        border-color: #6c757d;
+    }
+    .navbar-dark .btn-outline-success {
+        border-color: #6c757d;
+    }
+    
+    li:hover {
+    background-color: orange;
+    border-radius: 3px;
+    }
+    
+    
+    
+   
+    /****** Footer Css ******/
+    .footer {
+          background-color: #212529;
+          color: white;
+          padding: 40px 0; /* 16px */
+          position: relative;
+          width: 100%;
+          bottom: 0;
+          position : absolute; /*입력시 최하단 고정*/
+          border:2px solid gray;
+          border-radius: 5px; 
+        }
+  
+        .footer a {
+          color: white;
+          text-decoration: none;
+        }
+        .footer a:hover {
+          /* 마우스를 a 태그 위에 올리면 아래에 줄이 생김 */
+          text-decoration: underline;
+        }
+        

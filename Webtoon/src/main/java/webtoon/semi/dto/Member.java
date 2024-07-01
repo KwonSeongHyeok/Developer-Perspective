@@ -18,5 +18,5 @@ public class Member {
 	private String mem_phone;//8
 	private String mem_ssn;//9
 	private String mem_join_date;//10
-	private char mem_gender;//char string 고민 M/F선택 //11	
+	private String mem_gender;//char string 고민 M/F선택 //11	
 }

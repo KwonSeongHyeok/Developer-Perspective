@@ -1,0 +1,68 @@
+body{
+	margin: 0;
+	padding: 0;
+	/*background-color: orange;*/
+}
+.nav_login{
+	margin:0;
+	padding:20px;
+	background-color: aliceblue;
+	
+	text-align:right;
+}
+.container {
+	
+	
+	text-align: center;
+	
+	background-color:white;
+	
+	
+	padding:1px;
+
+}
+
+button {
+	border: none;
+	border-radius: 10px;
+	background-color: aliceblue;
+	color: gray;
+	width: 150px;
+	height: 100px;
+	
+	margin-right: 10px;
+	font-size: larger;
+	box-shadow: 0 0 20px gray;
+	
+	margin-bottom: 50px;
+	
+}
+
+button:hover {
+	background-color: gray;
+	color: aliceblue;
+	cursor: pointer;
+}
+p, a{
+	padding:10px;
+	font-weight: bold;
+	
+}
+.container p{
+	text-align: right;
+	color: red;
+	margin-right: 10px;
+}
+
+a{
+	text-decoration:none;
+	border-radius:5px;
+	
+	background-color:#333;
+	color:white;
+	
+}
+a:hover{
+	background-color: orange;
+	
+}

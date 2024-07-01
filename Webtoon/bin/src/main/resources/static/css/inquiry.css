@@ -1,0 +1,37 @@
+ /****** 건의사항 등록 페이지 ******/
+        h1{
+        font-weight:bold;
+        font-size : 50px;
+        text-align: center;
+        padding: 40px;
+        }
+        header {
+            background-image: linear-gradient(to right, green, yellow);
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+       
+        button {
+        width: 100%;
+        }
+       
+        .article {
+            padding: 20px;
+            background-color: white;
+            border-radius: 5px;
+        }
+        .mb-3 {
+        font-weight: bold;
+        font-size: 30px;
+        }
+        .mb-4 {
+	         font-weight: bold;
+	         font-size: 40px;
+        }
+        .btn {
+        font-weight: bold;
+        font-size: 30px;
+        }
+        
+       

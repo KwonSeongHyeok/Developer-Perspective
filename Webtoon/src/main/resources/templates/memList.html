@@ -1,50 +1,70 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-	<meta charset="utf-8">
-	<title>mem list</title>
+<meta charset="utf-8">
+	<title>memList</title>
+	<!-- 주소는 http://localhost:8181/member-list -->
+	<link rel="stylesheet" href="/css/headerFooter.css">
+	<link rel="stylesheet" href="/css/memList.css">
 </head>
 <body>
-	<h1>mem 리스트</h1>
-	<table border="1">
-		<thead>
-			<tr>
-				<th>mem_code</th>
-				<th>ID</th>
-				<th>이름</th>
-				<th>닉네임</th>
-				<!-- pw비밀번호보여줄지생각 -->
-				<th>비밀번호</th>
-				
-				<th>주소</th>
-				<th>이메일</th>
-				<th>휴대폰번호</th>
-				<th>생년월일</th>
-				
-				<th>가입일</th>
-				<th>성별</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr th:each="m : ${memList}"><!-- 연결: controller model.attribute("memList",memList)-->
-				<td th:text="${m.mem_code}"></td>
-				<td th:text="${m.mem_id}"></td>
-				<td th:text="${m.mem_name}"></td>
-				<td th:text="${m.mem_nickname}"></td>
-				<!-- 보여주기에 password 보여줄지생각 -->
-				<td th:text="${m.mem_pw}"></td>
-				
-				<td th:text="${m.mem_address}"></td>
-				<td th:text="${m.mem_email}"></td>
-				<td th:text="${m.mem_phone}"></td>
-				<td th:text="${m.mem_ssn}"></td>
-				
-				<td th:text="${m.mem_join_date}"></td>
-				<td th:text="${m.mem_gender}"></td>
-			</tr>
-		</tbody>
-	</table>
-	<a href="/">메인으로 돌아가기</a>
+	<header>
+		<h1>멤버정보 전체보기</h1>
+	</header>
+	<div class="container">
+	<div class="tableDiv">
+		<table border="1">
+			<thead>
+				<tr>
+					<th>mem_code</th>
+					<th>ID</th>
+					<th>이름</th>
+					<th>닉네임</th>
+					<!-- pw비밀번호 안보이게 -->
+					<!--  <th>비밀번호</th> -->
+
+					<th>주소</th>
+					<th>이메일</th>
+					<th>휴대폰번호</th>
+					<th>생년월일</th>
+
+					<th>가입일</th>
+					<th>성별</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="m : ${memList}">
+					<!-- 연결: controller model.attribute("memList",memList)-->
+					<td th:text="${m.mem_code}"></td>
+					<td th:text="${m.mem_id}"></td>
+					<td th:text="${m.mem_name}"></td>
+					<td th:text="${m.mem_nickname}"></td>
+					<!-- 보여주기에 password 숨기기로 -->
+					<!-- <td th:text="${m.mem_pw}"></td>-->
+
+					<td th:text="${m.mem_address}"></td>
+					<td th:text="${m.mem_email}"></td>
+					<td th:text="${m.mem_phone}"></td>
+					<td th:text="${m.mem_ssn}"></td>
+
+					<td th:text="${m.mem_join_date}"></td>
+					<td th:text="${m.mem_gender}"></td>
+				</tr>
+			</tbody>
+		</table>
+		
+		<a href="/">메인으로 돌아가기</a>
+		</div>
+		<div class="sideDiv">
+		</div>
+	</div>
+	
+<footer class="footer mt-5 relative-bottom">
+            <div class="text-center">
+              <p>&copy; 2024 KH-T Webtoon. All Teemplay Semi-Project.</p>
+              <p><a href="#">개인정보처리방침</a> | <a href="#">이용약관</a> | <a href="inquiry">건의사항 등록</a></p>
+            </div>
+     </footer>
 
 </body>
 </html>

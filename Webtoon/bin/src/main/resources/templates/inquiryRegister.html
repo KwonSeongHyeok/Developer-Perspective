@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>문의사항 등록 페이지</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+crossorigin="anonymous">
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/inquiry.css">
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js"></script> <!-- jQuery -->
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+           
+            <a class="navbar-brand" href="#">  <!-- 브랜드 이미지 -->
+		      <img src="https://cdn.icon-icons.com/icons2/3915/PNG/512/yourtraveldottv_logo_icon_249126.png" 
+		      alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+     		 </a>
+     		 
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="brand-title">
+            	<a style="color:white">WebToon</a>
+            </div>
+            
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/allSnack">웹툰</a>
+                    </li>
+                  
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">도전만화 등록</a>
+                    </li>
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Dropdown
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                    </li>
+                </ul>
+                
+                <form class="d-flex" role="search">   <!-- 검색창 DB 연동에 대해서 생각 -->
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+                
+            </div>
+        </div>
+    </nav>
+
+	<header>
+		<h1>웹툰 고객센터</h1>
+	</header>
+	
+        <div class="posts">
+                <!-- article : 블로그나 글, 뉴스 기사, 포럼 게시물 등과 같이 독립적으로
+                               작성하거나 재사용할 수 있는 내용을 작성할 때 사용 -->
+        <div class="article">
+        <div class="container mb-5">
+        <h2 class="mb-4">건의 사항</h2>
+        <hr>
+        
+        <form th:action="@{/register-inquiry}" method="post" th:object="${inquiry}">
+            
+            <div class="mb-3">
+                <label class="form-label">제목</label>
+                <input type="text" class="form-control" th:field="*{inquiry_title}" required>
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label">작성자</label>
+                <input type="text" class="form-control" th:field="*{inquiry_writer}" required>
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label">이메일</label>
+                <input id="email" type="email" class="form-control" th:field="*{inquiry_email}" required>
+                 <p id="정규식메세지"></p>
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label">내용</label>
+                <textarea class="form-control" rows="5" th:field="*{inquiry_massage}" required></textarea>
+            </div>
+            
+              <div class="mb-3">
+                <label class="form-label">개인정보수집 동의 : </label>
+                <input type="radio" name="privacy" value="Y" th:field="*{inquiry_privacy}" />동의함 
+                <input type="radio" name="privacy" value="N" th:field="*{inquiry_privacy}" />동의하지않음
+            </div>
+              
+			<button type="submit" class="btn btn-dark">작성</button>
+        </form>
+    </div>
+    </div>
+
+    </div><!--boxs-->
+        
+	
+	 <footer class="footer mt-5">
+            <div class="container text-center">
+              <p>&copy; 2024 KH-T Webtoon. All Teemplay Semi-Project.</p>
+              <p><a href="#">개인정보처리방침</a> | <a href="#">이용약관</a> | <a href="inquiry">건의사항 등록</a></p>
+            </div>
+     </footer>
+	
+	 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"></script>
+     
+     <script>
+     //이메일 정규식 js
+      $(document).ready(function () {
+        $("#email").on("input", function () {
+          const email = $(this).val();
+          const 정규식 = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+          //만약에 이메일이 정규식에 적합한지 테스트 했을때 적합하다면
+          if (정규식.test(email)) {
+            $("#정규식메세지").text("이메일 형식이 올바릅니다.").css("color", "green");
+          } else {
+            $("#정규식메세지").text("이메일 형식이 올바르지 않습니다.").css("color", "red");
+          }
+        });
+      });
+  
+     
+    </script>
+    
+</body>
+</html>

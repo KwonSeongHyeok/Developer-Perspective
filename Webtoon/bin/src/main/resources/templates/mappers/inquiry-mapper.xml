@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- mybatis db연결 후 값 전달과정생략해줌 sql에서처럼 습관적으로 세미콜론; 붙이지말기-->
+
+<mapper namespace="webtoon.semi.mapper.InquiryMapper">
+	
+	<insert id="insertInquiry" parameterType="webtoon.semi.dto.Inquiry"><!-- id MemberMapper.java 메서드와 일치 -->
+		INSERT INTO inquiry 
+		(inquiry_id , inquiry_title, inquiry_writer,  inquiry_email, inquiry_massage, inquiry_privacy)
+     	VALUES 
+    	(inquiry_seq.NEXTVAL, #{inquiry_title}, #{inquiry_writer}, #{inquiry_email}, #{inquiry_massage}, #{inquiry_privacy})
+	</insert>
+	
+	<select id="getIdTitleInquiry" resultType="webtoon.semi.dto.Inquiry">
+		SELECT inquiry_id, inquiry_title, inquiry_writer, inquiry_createDate
+		FROM inquiry
+	</select>
+	
+	<select id="getInquiryById" resultType="webtoon.semi.dto.Inquiry" parameterType="int">
+		SELECT *
+		FROM inquiry
+		WHERE INQUIRY_ID = #{inquiry_id}
+	</select>
+	
+	
+</mapper>

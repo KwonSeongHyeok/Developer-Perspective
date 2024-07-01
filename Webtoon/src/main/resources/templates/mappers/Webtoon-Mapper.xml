@@ -59,4 +59,14 @@
 		WHERE web_code = #{web_code}
 	</select>
 	
+	
+	<!-- 메인화면 랜덤 웹툰 추천 보여주기 -->
+	<select id="showRandomWeb" resultType="webtoon.semi.dto.Webtoon">
+		 <![CDATA[
+        SELECT * FROM (
+            SELECT * FROM webtoon ORDER BY DBMS_RANDOM.RANDOM
+        )
+        WHERE ROWNUM <= 3
+        ]]>
+	</select>
 </mapper>

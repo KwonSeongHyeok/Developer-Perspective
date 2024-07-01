@@ -63,13 +63,22 @@
                     </li>
                 </ul>
                 
-                <form class="d-flex" role="search">   <!-- 검색창 DB 연동에 대해서 생각 -->
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <form class="d-flex" role="search" th:action="@{/search-result}" method="post">   <!-- 검색창 DB 연동에 대해서 생각 -->
+                    <input class="form-control me-2" type="search" name="keyword" placeholder="제목 또는 작가 입력" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
-                
-                <button>로그인</button>
-                
+
+                <div class="logRegi nav_login">
+					<div th:if="${session.loginSession != null}">
+						<p th:text="${session.loginSession.mem_name} + ' 님 환영합니다.' ">&nbsp;&nbsp;&nbsp;</p>
+						<a href="/logout">로그아웃</a> <a href="/myPage">마이페이지</a>
+					</div>
+					<div th:if="${session.loginSession == null}" >
+	                <a href="/login">로그인</a>
+	
+	                <a href="/memberRegister">회원가입</a>
+	                </div>
+                </div>
             </div>
         </div>
     </nav>

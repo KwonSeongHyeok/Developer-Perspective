@@ -12,6 +12,9 @@ public interface WebtoonMapper {
 	// 웹툰 전체 리스트
 	List<Webtoon> getAllWebtoon();
 	
+	// 랜덤 웹툰 리스트
+	List<Webtoon> showRandomWeb();
+	
 	// 웹툰 요일별 리스트
 	List<Webtoon> getMonWebtoon();
 	List<Webtoon> getTuesWebtoon();
