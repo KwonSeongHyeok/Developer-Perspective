@@ -68,10 +68,18 @@
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
 
-                <a href="/login">로그인</a>
 
-                <a href="/memberRegister">회원가입</a> 
-                
+                <div class="logRegi nav_login">
+					<div th:if="${session.loginSession != null}">
+						<p th:text="${session.loginSession.mem_name} + ' 님 환영합니다.' ">&nbsp;&nbsp;&nbsp;</p>
+						<a href="/logout">로그아웃</a> <a href="/myPage">마이페이지</a>
+					</div>
+					<div th:if="${session.loginSession == null}" >
+	                <a href="/login">로그인</a>
+	
+	                <a href="/memberRegister">회원가입</a>
+	                </div>
+                </div>
             </div>
         </div>
     </nav>

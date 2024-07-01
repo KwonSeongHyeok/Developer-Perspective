@@ -1,6 +1,9 @@
 package webtoon.semi.controller;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Random;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,14 +14,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import jakarta.servlet.http.HttpSession;
+import webtoon.semi.dto.Member;
 import webtoon.semi.dto.Webtoon;
+import webtoon.semi.service.MemberService;
 import webtoon.semi.service.WebtoonService;
 
 @Controller
 public class WebtoonController {
 	@Autowired
 	private WebtoonService webtoonService;
-	
+
 	/****** 웹툰 보러가는 GetMapping *******/
 	@GetMapping("/webtoon-Main")
 	public String getAllWebtoon(Model model) {
@@ -27,13 +33,28 @@ public class WebtoonController {
 		return "webtoon-Main";
 	}
 	
+	@GetMapping("/")
+	public String showRandomWeb(Model model) {
+		List<Webtoon> webtoon = webtoonService.showRandomWeb();
+		model.addAttribute("webtoon", webtoon);
+		return "index";
+	}
+	
+	
 	/******  웹툰 정보를 등록할 수 있는 주소로 이동하는 getMapping  ******/
 	@GetMapping("/web-register")
-	public String registerForm(Model model) {
+	public String registerForm(HttpSession session, Model model) {
+		Member member = (Member) session.getAttribute("loginSession");
+		
+		if(member == null) {
+			return "redirect:/login";
+		}
+		
 		model.addAttribute("w", new Webtoon());
 		return "webUpload";
 	}
-	
+
+		
 
 	/******  웹툰 정보 db 업로드 PostMapping  ******/
 	@PostMapping("/web-upload")
