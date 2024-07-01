@@ -18,7 +18,8 @@ import webtoon.semi.service.WebtoonService;
 public class WebtoonController {
 	@Autowired
 	private WebtoonService webtoonService;
-		
+	
+	/****** 웹툰 보러가는 GetMapping *******/
 	@GetMapping("/webtoon-Main")
 	public String getAllWebtoon(Model model) {
 		List<Webtoon> webtoon = webtoonService.getAllWebtoon();

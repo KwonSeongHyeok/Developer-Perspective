@@ -9,7 +9,7 @@
 
 </head>
 <body>
- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
            
             <a class="navbar-brand" href="#">  <!-- 브랜드 이미지 -->
@@ -31,37 +31,33 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="/">Home</a>
                     </li>
-                    
                     <li class="nav-item">
                         <a class="nav-link" href="/webtoon-Main">웹툰</a>
                     </li>
-                  
                     <li class="nav-item">
                         <a class="nav-link" href="/web-register">도전만화 등록</a>
                     </li>
-                    
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Dropdown
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/inquiry-Board">문의 게시판</a>
                     </li>
-                    
                 </ul>
-                
-                <form class="d-flex" role="search">   <!-- 검색창 DB 연동에 대해서 생각 -->
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+
+                <form class="d-flex" role="search" th:action="@{/search-result}" method="post">   <!-- 검색창 DB 연동에 대해서 생각 -->
+                    <input class="form-control me-2" type="search" name="keyword" placeholder="제목 또는 작가 입력" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
-                
-                <button>로그인</button>
-                <a href="#">회원가입</a>
-                
+
+                <div class="nav_login">
+					<div th:if="${session.loginSession != null}">
+						<p th:text="${session.loginSession.mem_name} + ' 님 환영합니다.' "></p>
+						<a href="/logout">로그아웃</a> <a href="/myPage">마이페이지</a>
+					</div>
+				</div>
+				<div th:if="${session.loginSession == null}">
+                <a href="/login">로그인</a>
+
+                <a href="/memberRegister">회원가입</a>
+                </div> 
             </div>
         </div>
     </nav>

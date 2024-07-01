@@ -43,14 +43,29 @@ body {
 }
 
 
+
+
+.nav_login{
+	color: white;		
+}
+
+
+
 /****** footer ******/
 .footer {
-	background-color: #343a40;
+	background-color: #212529;
 	color: white;
 	padding: 5px;
+	border: 2px solid gray;
+	border-radius: 5px;
+	text-align: center;
 }
 
 .footer a {
 	color: white;
 	text-decoration: none;
+}
+
+.footer a:hover {
+	text-decoration: underline;
 }

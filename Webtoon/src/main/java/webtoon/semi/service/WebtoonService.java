@@ -81,4 +81,5 @@ public class WebtoonService {
 	public Webtoon getWebByCode(int web_code) {
 		return webtoonMapper.getWebByCode(web_code);
 	}
+	
 }
