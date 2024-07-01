@@ -5,7 +5,10 @@ body {
 .container {
 	padding: 50px;
 	
-	display:flex;
+	/*display:flex;*/
+	
+	text-align:center;
+	
 }
 .loginDiv{
 	margin-right:100px;
@@ -31,4 +34,11 @@ button:hover{
 	cursor:pointer;
 	background-color:orange;
 	color:black;
+}
+
+input{
+	margin-bottom:10px;
+	width:150px;
+	height:20px;
+	font-size: large;
 }

@@ -1,0 +1,30 @@
+header{
+			background-color: #333;
+			color: white;
+			padding: 30px;
+			text-align: center;
+						
+		}
+
+
+
+footer {
+	background-color: #212529;
+	color: white;
+	padding: 5px;
+	border: 2px solid gray;
+	border-radius: 5px;
+	text-align: center;
+	
+	
+}
+
+footer a {
+	color: white;
+	text-decoration: none;
+}
+
+footer a:hover {
+	/* 마우스를 a 태그 위에 올리면 아래에 줄이 생김 */
+	text-decoration: underline;
+}

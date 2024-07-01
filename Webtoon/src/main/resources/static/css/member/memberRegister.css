@@ -1,0 +1,77 @@
+h1{
+	font-weight: bold;
+}
+body {
+	margin: 0;
+	padding: 0;
+	background-color: rgb(255, 224, 224);
+}
+
+header{
+	margin-bottom:0px;
+}
+footer{
+	margin:0;
+}
+
+button {
+	border: none;
+	background-color: #333;
+	color: white;
+	border-radius: 5px;
+	cursor: pointer;
+	margin-top: 10px;
+	padding: 10px;
+}
+button:hover{
+	background-color: green;
+}
+
+.container {
+	padding: 50px;
+	display: flex;
+	margin: 0 auto;
+	background-color: rgb(255, 224, 224);
+}
+
+.registerDiv {
+	margin-top:10px;	
+	background-color: white;
+	box-shadow: 0 0 5px gray;
+	border-radius:5px;
+	margin:0 50px;
+	text-align:center;
+	width: 600px;
+}
+.sideDiv{
+	margin:0px;
+	padding:1px;
+}
+
+form {
+	padding: 20px;
+}
+
+label{
+	font-weight: bold;
+	margin:4px;
+}
+
+input {
+	width: 300px;
+	height: 30px;
+	border-radius:5px;
+	border : 1px solid gray;
+}
+span{
+	font-size: xx-small;
+}
+
+img{
+	width:350px;
+	margin-top:50px;
+}
+
+#mem_address_box{
+	height:100px;
+}

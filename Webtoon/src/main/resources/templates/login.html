@@ -2,9 +2,9 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta charset="utf-8">
-	<title>로그인</title>
-	<link rel="stylesheet" href="/css/headerFooter.css">
-	<link rel="stylesheet" href="/css/login.css">
+	<title>로그인 마이페이지용</title>
+	<link rel="stylesheet" href="/css/member/headerFooter.css">
+	<link rel="stylesheet" href="/css/member/login.css">
 
 </head>
 <body>
@@ -15,26 +15,31 @@
 		<div class="loginDiv">
 			<form action="/login" method="post">
 				<!-- m은 controller addAttribute -->
-				<label>id : </label> <input type="text" th:field="${m.mem_id}"><br>
-				<label>pw : </label> <input type="password" th:field="${m.mem_pw}"><br>
+				<label>I D </label> <input type="text" th:field="${m.mem_id}"><br>
+				<label>PW  </label> <input type="password" th:field="${m.mem_pw}"><br>
 				<button>로그인</button>
 			</form>
 			<div th:if="${e}">
 				<p th:text="${e}" style="color: red;"></p>
 			</div>
 		</div>
-		<div class="sideDiv1">
+		<!-- 
+		<div class="sideDiv1" style="display: none">
 			<h3>로그인창 광고1</h3>
 			<img src="/images/Mangalica-pigs3.jpg">
 		</div>
-		<div class="sidDiv2">
+		<div class="sidDiv2" style="display: none">
 			<h3>로그인창 광고2</h3>
 			<img src="/images/kunekune-pigs3.jpg">
 		</div>
+		 -->
 	</div>
-	<footer>
-		<p>&copy;2024 웹툰 . All Rights Reserved.</p>
-	</footer>
+	<footer class="footer mt-5 relative-bottom">
+            <div class="text-center">
+              <p>&copy; 2024 KH-T Webtoon. All Teemplay Semi-Project.</p>
+              <p><a href="#">개인정보처리방침</a> | <a href="#">이용약관</a> | <a href="inquiry">건의사항 등록</a></p>
+            </div>
+     </footer>
 
 </body>
 </html>
