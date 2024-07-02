@@ -91,9 +91,6 @@ nav {
 	margin-right: 10px;
 }
 
-.form-control {
-	
-}
 
 li {
 	margin-top: 20px;
@@ -119,7 +116,7 @@ li {
 	font-weight: bold;
 }
 
-.navbar-dark .form-control {
+.navbar-dark{
 	background-color: #495057;
 	border-color: #6c757d;
 }
