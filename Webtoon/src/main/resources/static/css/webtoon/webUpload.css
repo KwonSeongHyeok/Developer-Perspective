@@ -69,7 +69,7 @@ nav {
 }
 
 .container-fluid {
-	padding: 20px;
+	padding: 10px;
 }
 
 .container-fluid img {
@@ -109,12 +109,12 @@ li {
 }
 
 .navbar-dark .navbar-brand, .navbar-dark .nav-link, .navbar-dark .navbar-toggler-icon,
-	.navbar-dark .form-control, .navbar-dark .btn-outline-success {
+	.navbar-dark .form-control, .navbar-dark{
 	color: #ffffff;
 }
 
 .navbar-dark .nav-link:hover, .navbar-dark .navbar-brand:hover,
-	.navbar-dark .btn-outline-success:hover {
+	.navbar-dark{
 	color: black;
 	font-weight: bold;
 }
@@ -124,7 +124,7 @@ li {
 	border-color: #6c757d;
 }
 
-.navbar-dark .btn-outline-success {
+.navbar-dark {
 	border-color: #6c757d;
 }
 
