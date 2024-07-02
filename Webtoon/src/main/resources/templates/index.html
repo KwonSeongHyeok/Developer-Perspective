@@ -9,15 +9,10 @@
 rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
 crossorigin="anonymous">
 <link rel="stylesheet" href="/css/main.css">
-<link rel="stylesheet" href="/css/member/loginRegiMypage.css">
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Dongle&family=Jua&display=swap" rel="stylesheet">
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 </head>
 <body>
@@ -25,7 +20,8 @@ crossorigin="anonymous">
         <div class="container-fluid">
            
             <a class="navbar-brand" href="#">  <!-- 브랜드 이미지 -->
-		      <img src="/images/logo.jpg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+		      <img src="/images/logo.jpg" 
+		      alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
      		 </a>
      		 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -46,7 +42,7 @@ crossorigin="anonymous">
                         <a class="nav-link" href="/webtoon-Main">웹툰</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/web-register">도전만화 등록</a>
+                        <a onclick="needLogin()" class="nav-link" href="/web-register">도전만화 등록</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/inquiry-Board">문의 게시판</a>
@@ -57,7 +53,7 @@ crossorigin="anonymous">
                     <input class="form-control me-2" type="search" name="keyword" placeholder="제목 또는 작가 입력" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
-       
+                
                 <div class="logRegi nav_login">
 					<div th:if="${session.loginSession != null}">
 						<p th:text="${session.loginSession.mem_name} + ' 님 환영합니다.' ">&nbsp;&nbsp;&nbsp;</p>
@@ -86,24 +82,32 @@ crossorigin="anonymous">
 		</div>
 		<div>
 			<div class="row">
-				<div class="col-md-4" th:each=" w : ${webtoon}">
+			<div class="col-md-4" th:each=" w : ${webtoon}">
 					<div class="card">
 						<a th:href="@{'/Webtoon/' + ${w.web_code}}">
 							<img th:src="@{${w.web_image_path}}" class="card-img-top">
-							<span th:text="${w.web_name}"></span>
+							<span th:text="${w.web_name} +' / '+ ${w.web_author}"></span>
 							<p th:text="${w.web_summary}"></p>
 						</a>
 					</div>
-				</div>
-			</div>	
+			</div>
+		</div>	
+		
 		</div>
+		
+		
+		
 	</div>
+     
      
 
      
      
+     
+     
+     
 	 <footer class="footer mt-5">
-            <div class="container text-center">
+            <div class="text-center">
               <p>&copy; 2024 KH-T Webtoon. All Teemplay Semi-Project.</p>
               <p><a href="#">개인정보처리방침</a> | <a href="#">이용약관</a> | <a href="/inquiryRegister">건의사항 등록</a></p>
             </div>

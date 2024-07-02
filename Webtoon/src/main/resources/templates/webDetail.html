@@ -86,22 +86,50 @@
         </div>
     </nav>
 	
+	
 	<div class="container">
-		<h1 th:text="${webtoon.web_name} + ' 상세 정보'"></h1>
-		<div class="moreInfo">
-			<div>
-				<img th:src="@{${webtoon.web_image_path}}" class="card-img-top">
+		<div class="title">
+			<h2>웹툰 상세 정보</h1>
+		</div>
+		<div class="row">
+			<div class="col-md-5">
+			<img th:src="@{${webtoon.web_image_path}}" class="card-img-top">
 			</div>
-			<div class="detail">
-				제목 : <span th:text="${webtoon.web_name}"></span><br>
-			
-				작가 : <span th:text="${webtoon.web_author}"></span><br>
-			
-				연재요일 : <span th:text="${webtoon.web_day}"></span><br>
-			
-				줄거리 : <span th:text="${webtoon.web_story}"></span>
+				
+			<div class="col-md-7">
+					<div class="title">
+						<h3 th:text="${webtoon.web_name}"></h3>
+					</div>
+					<br>
+	         		<div>
+						<span th:text="${webtoon.web_author}"></span><span class="sub"> ㆍ 글</span>
+						<span th:text="'&nbsp; | &nbsp;' + ${webtoon.web_day}"></span>	
+					</div>
+					<br><br>
+					<div>
+						<span th:text="${webtoon.web_story}"></span>
+					</div>
+					<br>
+					<div class="tag">
+						<span th:text="'#'+${webtoon.web_genre}"></span>
+					</div>
+					<br><br><br><br><br><br><br><br>
+					
+					<div class="button">
+						<button class="btn btn-primary">1 화&nbsp;&nbsp;&nbsp; 보 러 가 기</button>
+						&nbsp;&nbsp;&nbsp;
+					
+						 <label for="checkbox">
+					        <input type="checkbox" id="checkbox" hidden>
+					        <svg t="1689815540548" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2271"><path d="M742.4 101.12A249.6 249.6 0 0 0 512 256a249.6 249.6 0 0 0-230.72-154.88C143.68 101.12 32 238.4 32 376.32c0 301.44 416 546.56 480 546.56s480-245.12 480-546.56c0-137.92-111.68-275.2-249.6-275.2z" fill="#231F20" p-id="2272" id="heart"></path></svg>
+					        <span></span>
+						 </label>
+					</div>
+					
+						
 			</div>
 		</div>
+		
 	</div>
 	
 	

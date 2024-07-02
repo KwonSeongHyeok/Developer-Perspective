@@ -13,6 +13,7 @@ body {
 /***** container *****/
 .container{
 	width: 100%;
+	heith: auto;
 	margin-top: 10px;
 }
 .container .title span {
@@ -55,6 +56,8 @@ body {
 
 
 
+
+
 /****** NavBar Css ******/
 nav {
 	border: 2px solid gray;
@@ -84,8 +87,9 @@ nav {
 	margin-right: 10px;
 }
 
+.form-control {
 	
-	
+}
 
 li {
 	margin-top: 20px;
@@ -101,12 +105,12 @@ li {
 }
 
 .navbar-dark .navbar-brand, .navbar-dark .nav-link, .navbar-dark .navbar-toggler-icon,
-	.navbar-dark .form-control, .navbar-dark .btn-outline-success {
+	.navbar-dark .form-control, .navbar-dark{
 	color: #ffffff;
 }
 
 .navbar-dark .nav-link:hover, .navbar-dark .navbar-brand:hover,
-	.navbar-dark .btn-outline-success:hover {
+	.navbar-dark {
 	color: black;
 	font-weight: bold;
 }
@@ -116,7 +120,7 @@ li {
 	border-color: #6c757d;
 }
 
-.navbar-dark .btn-outline-success {
+.navbar-dark {
 	border-color: #6c757d;
 }
 
@@ -173,5 +177,3 @@ li:hover {
 	/* 마우스를 a 태그 위에 올리면 아래에 줄이 생김 */
 	text-decoration: underline;
 }
-   
-  

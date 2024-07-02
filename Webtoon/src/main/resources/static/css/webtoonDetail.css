@@ -8,17 +8,13 @@ body {
 	object-fit: cover;
 	height: 100%;
 }
-.card{
-	margin : 10px 0 0 0;
-	box-shadow: 0 0 10px #343a40;
+
+
+.nav_login{
+	color: white;		
 }
-.card span{
-	text-align: justify;
-	font-family: "Jua", sans-serif;
-  	font-weight: 700;
-  	font-style: normal;
-  	margin-left: 5px;
-}
+
+
 
 
 .footer {
@@ -32,11 +28,44 @@ body {
 	text-decoration: none;
 }
 
-.container .title span {
+.container .title h2, h3{
+	font-family: "Jua", sans-serif;
 	font-weight: 700;
   	font-style: normal;
-  	font-size: larger;
+  	font-size: xx-large;
 }
+
+.container span{
+	font-family: "Jua", sans-serif;
+	font-weight: 500;
+  	font-style: normal;
+  	font-size: x-large;
+  	
+}
+.container .sub{
+	color : gray;
+	font-weight: 500;
+  	font-style: normal;
+  	font-size: x-large;
+}
+
+.container .tag{
+	border: 0 solid gray;
+	border-radius: 10px;
+	padding: 10px;
+	background-color: #f2f2f2;
+	text-align: center;
+	width: 80px;
+}
+
+.btn-primary{
+	padding: 10px;
+	width: 85%;
+	font-weight: 500;
+	font-size: x-large;
+	font-family: "Jua", sans-serif;
+}
+
 
 .container a{
 	
@@ -46,35 +75,171 @@ body {
 }
 
 .container img{
-	width: 50%;
+	width: 90%;
 	height: auto;
 	
 }
 
 .container{
-	width: 50%;
+	width: 70%;
 	margin-top:10px;
 	padding: 20px;
 	background-color: #fff;
 	border-radius: 8px;
 	
-	box-shadow: 0 0 10px #343a40;
 }
 
-.detail{
-	margin-bottom: 10px;
-	font-family: "Jua", sans-serif;
-  	font-weight: 700;
-  	font-style: normal;
+
+/******** nav ***********/
+.logRegi{
+	display:flex;
+	flex-wrap:wrap;
+	color:white;
+	text-align: center;
 }
 
-.detail img{
-	width: 300px;
-	height: auto;
-	border-radius: 15px;
+.logRegi a, .nav_login a{
+	text-decoration:none;
+	border-radius:5px;
+	
+	background-color:#333;
+	color:white;
+	
+	padding:10px;
+	font-weight: bold;
+	
+	margin:5px;
+	
+}
+.logRegi a:hover, .nav_login a:hover{
+	background-color: orange;
+	
 }
 
-.moreInfo{
-	border: 1px solid #343a40;
+.nav_login{
+	color: white;
+}
+
+.container-fluid{
 	padding: 10px;
 }
+
+
+/****** heart *****/
+svg{
+    width: 75px;
+    /*상대포지션*/
+    position: relative;
+    /*z-index: 10;*/
+}
+
+#heart{
+    /*색 보충*/
+    fill: #eee;
+
+    /*stroke속성은 선, 문자, 원소등의 테두리에대해서 디자인 가능*/
+    stroke: var(--c);
+    /*선의 넓이*/
+    stroke-width: 40px;
+    /*선을 점선으로 설정, 점선의 길이 설정*/
+    stroke-dasharray: 3000;
+    /*displacement of line*/
+    stroke-dashoffset: 3000;
+    /*끝점은 둥글게*/
+    stroke-linecap: round;
+
+}
+
+.chexkbox span{
+    display: red;
+    width: 24px;
+    height: 24px;
+    background-color: transparent;
+    border-radius: 50%;
+    /*절대적 포지션: center*/
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    /*각 방향의 쉐도우 설정*/
+    /*var함수로 쉐도우 컬러 설정*/
+    box-shadow: 0 -160px 0 red,
+    0 160px 0 red,
+    -160px 0 0 red,
+    160px 0 0 red,
+    -120px -120px 0 red,
+    120px -120px 0 red,
+    120px 120px 0 red,
+    -120px 120px 0 red;
+}
+
+/*checkbox를 클릭할 경우 애니메이션 실행*/
+#checkbox:checked + svg #heart{
+    /*애니메이션실행: 애니메이션이름, 실행시간, 선형 마지막 정지한 프레임*/
+    animation: drawHeart 1s linear forwards;
+}
+
+#checkbox:checked ~ span{
+    /*애니메이션실행: 애니메이션이름, 실행시간, 선형 마지막 정지한 프레임*/
+    animation: blink 0.5s ease-in-out forwards;
+    /*애니메이션 딜레이*/
+    animation-delay: 0.8s ;
+}
+
+#checkbox:checked + svg{
+     /*애니메이션실행: 애니메이션이름, 실행시간, 선형 마지막 정지한 프레임*/
+    animation: beat 1s linear forwards;;
+}
+label{
+    /*마우스 heart로 이동시 마우스 커서변동*/
+    cursor: pointer;
+}
+
+/*애니메이션 효과 설정*/
+/*heart 애니메이션*/
+@keyframes drawHeart{
+    0%{
+        stroke-dashoffset: 2600;
+    }
+    80%{
+        fill: red;
+        stroke-dashoffset: 0;
+    }
+    100%{
+        fill: red;
+        stroke-dashoffset: 0;
+    }
+
+}
+/*점 애니메이션*/
+@keyframes blink{
+    0%{
+        transform: translate(-50%, -50%) scale(0.5);
+        opacity: 0.8;
+    }
+    80%{
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+    100%{
+        transform: translate(-50%, -50%) scale(1.1);
+        opacity: 0;
+    }
+}
+
+/*두근두근 애니메이션*/
+@keyframes beat {
+    0%{
+        transform: scale(1);
+    }
+    70%{
+        transform: scale(1);
+    }
+    80%{
+        transform: scale(1.2);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
