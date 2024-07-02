@@ -7,6 +7,7 @@ rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bR
 crossorigin="anonymous">
 <link rel="stylesheet" href="/css/webtoon-main.css">
 
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Dongle&family=Jua&display=swap" rel="stylesheet">
@@ -67,12 +68,12 @@ crossorigin="anonymous">
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
 
-               <div class="logRegi nav_login">
+               <div class="nav_login logRegi">
 					<div th:if="${session.loginSession != null}">
 						<p th:text="${session.loginSession.mem_name} + ' 님 환영합니다.' ">&nbsp;&nbsp;&nbsp;</p>
 						<a href="/logout">로그아웃</a> <a href="/myPage">마이페이지</a>
 					</div>
-					<div th:if="${session.loginSession == null}" >
+					<div th:if="${session.loginSession == null}">
 	                <a href="/login">로그인</a>
 	
 	                <a href="/memberRegister">회원가입</a>
