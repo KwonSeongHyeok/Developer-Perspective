@@ -13,9 +13,10 @@ import webtoon.semi.mapper.InquiryMapper;
 public class InquiryService {
 	
 	@Autowired
-	private InquiryMapper inquiryMapper;
+	private InquiryMapper inquiryMapper; // 맵퍼 객체 생성 
+	
 	// insert 값 받아오기
-	public void insertInquiry(Inquiry inquiry) {//dto.Member import(다른import주의)
+	public void insertInquiry(Inquiry inquiry) { //맵퍼 인터페이스의 메서드 구현 
 		inquiryMapper.insertInquiry(inquiry);
 	}
 	
@@ -29,9 +30,13 @@ public class InquiryService {
 		return inquiryMapper.getInquiryById(inquiry_id);
 	}
 	
-	//search
+	//메인 search
 	public List<Webtoon> searchWebtoon(String keyword){
 		return inquiryMapper.searchWebtoon(keyword);
 	}
 	
+	//게시판 search
+    public List<Inquiry> boardSearch(String keyword){
+    	return inquiryMapper.boardSearch(keyword);
+    }
 }
