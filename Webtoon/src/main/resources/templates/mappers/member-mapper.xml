@@ -2,32 +2,29 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<!-- mybatis db연결 후 값 전달과정생략해줌 sql에서처럼 습관적으로 세미콜론; 붙이지말기-->
 <mapper namespace="webtoon.semi.mapper.MemberMapper">
-	<insert id="insertMember" parameterType="webtoon.semi.dto.Member"><!-- id MemberMapper.java 메서드와 일치 -->
+	<insert id="insertMember" parameterType="webtoon.semi.dto.Member">
 		INSERT INTO member (
 			mem_code, mem_id, mem_name, mem_nickname, mem_pw,
 			mem_address, mem_email, mem_phone, mem_ssn, mem_gender
 		)
-		VALUES (<!-- #{mem_code} 를 시퀀스처리하는데 적어서오류,mem_join_date위아래로제거 -->
+		VALUES (
 		member_seq.NEXTVAL, #{mem_id}, #{mem_name}, #{mem_nickname}, #{mem_pw},
 		#{mem_address}, #{mem_email}, #{mem_phone}, #{mem_ssn}, #{mem_gender}
 		)
 	</insert>
 	
-	<select id="getAllMember" resultType="webtoon.semi.dto.Member"><!-- id MemberMapper.java 메서드와 일치 -->
+	<select id="getAllMember" resultType="webtoon.semi.dto.Member">
 		SELECT * FROM member
 		ORDER BY mem_code
 	</select>
 	
-	<!-- 로그인 아이디 패스워드 받아서진행 -->
 	<select id="getLogin" resultType="webtoon.semi.dto.Member" parameterType="java.util.Map">
 		SELECT * FROM member
 		WHERE mem_id = #{mem_id}
 		AND mem_pw = #{mem_pw}
 	</select>
 	
-	<!-- 회원탈퇴 db에서삭제 -->
 	<delete id="deleteMember" parameterType="String">
 		DELETE FROM member
 		WHERE mem_id = #{mem_id}

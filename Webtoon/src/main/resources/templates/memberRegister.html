@@ -3,8 +3,14 @@
 <head>
 <meta charset="utf-8">
 <title>회원가입 페이지</title>
-<link rel="stylesheet" href="/css/headerFooter.css">
-<link rel="stylesheet" href="/css/memberRegister.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+crossorigin="anonymous">
+<link rel="stylesheet" href="/css/member/headerFooter.css">
+<link rel="stylesheet" href="/css/member/memberRegister.css">
+
+<script src="/js/imgRandom.js"></script>
+
 
 <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 <script src="/js/memberRegister.js"></script>
@@ -12,62 +18,79 @@
 </head>
 <body>
 	<header>
-		<h1>회원가입 페이지</h1>
+		<h1>회원가입</h1>
 	</header>
 
 	<div class="container">
+		<div class="sideDiv">
+			<img name="randomImg1">
+		</div>
 		<div class="registerDiv">
-			<!-- @{/register-member} 부분은 MemberController의 @PostMapping("/register-member")와 연결-->
 			<form th:action="@{/register-member}" method="post" th:object="${member}">
-				<label>id : </label><br>
-				<input type="text" th:field="*{mem_id}" id="mem_id_box" required><br>
-				<span id="idRegexMsg"></span><br>
+				<label>ID</label><br>
+				<input type="text" th:field="*{mem_id}" id="mem_id_box" required placeholder="*"><br>
+				<span id="idRegexMsg">* 6~10자 영어 소문자, 숫자 조합</span><br>
 				
-				<label>이름 : </label><br>
-				<input type="text" th:field="*{mem_name}" id="mem_name_box" required><br>
-				<span id="nameRegexMsg"></span><br>
+				<label>이름</label><br>
+				<input type="text" th:field="*{mem_name}" id="mem_name_box" required placeholder="*"><br>
+				<span id="nameRegexMsg">* 한글2~5자</span><br>
 				
-				<label>닉네임 : </label><br>
-				<input type="text" th:field="*{mem_nickname}" id="mem_nickName_box" required><br>
-				<span id="nickNameRegexMsg"></span><br>
+				<label>닉네임</label><br>
+				<input type="text" th:field="*{mem_nickname}" id="mem_nickName_box" required placeholder="*"><br>
+				<span id="nickNameRegexMsg">* 6~10자 영어 소문자, 숫자조합</span><br>
 
-				<label>비밀번호 : </label><br>
-				<input type="password" th:field="*{mem_pw}" id="mem_pw_box" required><br>
-				<span id="pwRegexMsg"></span><br>
+				<label>비밀번호</label><br>
+				<input type="password" th:field="*{mem_pw}" id="mem_pw_box" required ><br>
+				<span id="pwRegexMsg">* 8~12자 영어 대소문자, 숫자조합</span><br>
 					
-				<label>비밀번호 확인 : </label><br>
+				<label>비밀번호 확인</label><br>
 				<input type="password" id="mem_pwConfirm_box" required><br>
-				<span id="pwConfirmMsg"></span><br> <label>주소 : </label><br>
-				<input type="text" th:field="*{mem_address}" placeholder="필수아님"><br>
+				<span id="pwConfirmMsg"></span><br>
+				<label>주소 </label><br>
+				<input type="text" th:field="*{mem_address}" id="mem_address_box" placeholder="간단한 주소"><br>
 
-				<label>이메일 : </label><br>
-				<input type="text" th:field="*{mem_email}" placeholder="필수아님"><br>
+				<label>이메일</label><br>
+				<input type="text" th:field="*{mem_email}" ><br>
 				
-				<label>휴대폰 : </label><br>
-				<input type="text" th:field="*{mem_phone}" placeholder="필수아님"><br>
+				<label>휴대폰</label><br>
+				<input type="text" th:field="*{mem_phone}" ><br>
 				
-				<label>생년월일 : </label><br>
-				<input type="text" th:field="*{mem_ssn}" placeholder="필수아님"><br>
+				<label>생년월일</label><br>
+				<input type="text" th:field="*{mem_ssn}" ><br>
 
-				<label>성별 : </label><br>
-				<input type="text" th:field="*{mem_gender}" id="mem_gender_box" required placeholder="M/F"><br>
+				<label>성별</label><br>
+				<input type="text" th:field="*{mem_gender}" id="mem_gender_box" required placeholder="* M/F"><br>
 				<span id="genderRegexMsg"></span><br>
+				<span>* 부분은 필수 입력사항입니다.</span><br>
 
 				
 				<button id="joinToggle">회원가입하기</button>
 			</form>
 		</div>
+		
 		<div class="sideDiv">
-			<h1>웹툰광고</h1>
-			<img src=/images/kunekune-pigs3.jpg>
+			<img name="randomImg2">
 		</div>
 	</div>
 
+<<<<<<< HEAD
 	<footer class="footer mt-5 relative-bottom">
             <div class="text-center">
               <p>&copy; 2024 KH-T Webtoon. All Teemplay Semi-Project.</p>
               <p><a href="#">개인정보처리방침</a> | <a href="#">이용약관</a> | <a href="inquiry">건의사항 등록</a></p>
             </div>
      </footer>
+=======
+	<footer class="footer relative-bottom">
+            <div class="text-center">
+              <p>&copy; 2024 KH-T Webtoon. All Teemplay Semi-Project.</p>
+              <p><a href="#">개인정보처리방침</a> | <a href="#">이용약관</a> | <a href="inquiryRegister">건의사항 등록</a></p>
+            </div>
+     </footer>
+     
+     <script>
+     	random_img();
+     </script>
+>>>>>>> hyojinkim-memberRegister
 </body>
 </html>
