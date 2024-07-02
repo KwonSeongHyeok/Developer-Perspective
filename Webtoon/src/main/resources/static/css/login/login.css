@@ -1,3 +1,100 @@
+/****** NavBar Css ******/
+nav {
+	border: 2px solid gray;
+	border-radius: 5px;
+}
+.container-fluid {
+	padding: 10px;
+}
+
+.container-fluid img {
+	margin-right: 15px;
+	width: 100px;
+	height: 100px;
+}
+
+.brand-title {
+	margin-right: 20px;
+	font-size: 50px;
+}
+
+.brand-title a {
+	font-weight: bold;
+}
+
+.d-flex {
+	margin-right: 10px;
+}
+
+.form-control {
+	
+}
+
+li {
+	margin-top: 20px;
+	font-size: 20px;
+}
+
+.nav-item {
+	padding: 20px;
+}
+
+.navbar-dark {
+	background-color: #343a40;
+}
+
+.navbar-dark .navbar-brand, .navbar-dark .nav-link, .navbar-dark .navbar-toggler-icon,
+	.navbar-dark .form-control, .navbar-dark{
+	color: #ffffff;
+}
+
+.navbar-dark .nav-link:hover, .navbar-dark .navbar-brand:hover,
+	.navbar-dark {
+	color: black;
+	font-weight: bold;
+}
+
+.navbar-dark .form-control {
+	background-color: #495057;
+	border-color: #6c757d;
+}
+
+.navbar-dark {
+	border-color: #6c757d;
+}
+
+li:hover {
+	background-color: orange;
+	border-radius: 3px;
+}
+
+
+.logRegi{
+	display:flex;
+	flex-wrap:wrap;
+	color:white;
+	text-align: center;
+}
+
+.logRegi a, .nav_login a{
+	text-decoration:none;
+	border-radius:5px;
+	
+	background-color:#333;
+	color:white;
+	
+	padding:10px;
+	font-weight: bold;
+	
+	margin:5px;
+	
+}
+.logRegi a:hover, .nav_login a:hover{
+	background-color: orange;
+	
+}
+
+
 /* login */
 * {
 	margin: 0;
@@ -7,7 +104,7 @@
 
 body {
 	font-family: Arial, sans-serif;
-	background-color: #f0f0f0;
+	background-color: #f2f2f0;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -19,12 +116,14 @@ body {
 	justify-content: center;
 	align-items: center;
 	height: 100%;
+	background-color: #f2f2f2;
 }
 
 .login-form {
 	background-color: #fff;
 	border-radius: 8px;
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+
 	padding: 20px;
 	width: 300px;
 	text-align: center;
@@ -69,36 +168,22 @@ body {
 	text-decoration: underline;
 }
 
-.site-footer {
-	background-color: #333;
-	color: #fff;
-	padding: 20px 0;
-	font-size: 14px;
-	text-align: center;
+
+/****** Footer Css ******/
+.footer {
+	background-color: #212529;
+	color: white;
+	padding: 5px;
+	border: 2px solid gray;
+	border-radius: 5px;
 }
 
-.footer-links ul, .additional-links {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-}
-
-.footer-links ul li, .additional-links li {
-	display: inline;
-	margin-right: 15px;
-}
-
-.footer-links ul li a, .additional-links li a {
-	color: #fff;
+.footer a {
+	color: white;
 	text-decoration: none;
 }
 
-.footer-links ul li a:hover, .additional-links li a:hover {
+.footer a:hover {
+	/* 마우스를 a 태그 위에 올리면 아래에 줄이 생김 */
 	text-decoration: underline;
-}
-
-.company-info {
-	color: #ccc;
-	font-size: 12px;
-	line-height: 1.6;
 }
