@@ -103,9 +103,8 @@ img {
 
 		<div class="row">
 
-			<div class="card col-3"></div>
 
-			<div class="card col-6" th:each="webtoon : ${result}">
+			<div class="card col-12" th:each="webtoon : ${result}">
 				<div class="card-header">
 					<span th:text="${webtoon.web_name}"></span>
 				</div>
@@ -125,7 +124,6 @@ img {
 				</div>
 			</div>
 
-			<div class="card col-3"></div>
 
 		</div>
 
