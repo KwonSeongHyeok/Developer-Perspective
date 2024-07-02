@@ -44,12 +44,7 @@ public class MemberController {
 	}
 	//insert-select 프로젝트참고하기
 	
-	//추가
-	@GetMapping("/logout")
-	public String logout(HttpSession session/*, SessionStatus status시간지나면 자동로그아웃*/) {
-		session.invalidate();
-		return "redirect:/";
-	}
+
 	
 	//추가
 	@GetMapping("/myPage")
@@ -83,29 +78,8 @@ public class MemberController {
 		return "redirect:/";
 	}
 	
-	//로그인추가
-	@GetMapping("/login")
-	public String showLogin(Model model) {
-		model.addAttribute("m",new Member());
-		return "login";
-	}
+
 	
-	@PostMapping("/login")
-	public String getLogin(Model model,
-			@RequestParam("mem_id") String mem_id,
-			@RequestParam("mem_pw") String mem_pw,
-			HttpSession session
-			) {
-		Member member = memberService.getLogin(mem_id, mem_pw);
-		//만약 로그인한 정보와 일치한다면 그대로 db에서 담아서 가져올 것이기 때문에 null아님
-		//하지만 애초에 로그인할 정보가 다르면 db에서 출력이 되지 않기 때문에 null
-		if(member != null) {
-			session.setAttribute("loginSession", member);
-			return "redirect:/";
-		}else {
-			model.addAttribute("e", "일치하는 아이디 비밀번호가 없습니다.");
-			return "login";
-		}
-	}
+	
 
 }

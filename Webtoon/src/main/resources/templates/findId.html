@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>ID 찾기</title>
+<link rel="stylesheet" href="/css/login/loginMost.css">
+</head>
+<body>
+    <div class="login-container">
+        <form th:action="@{/findId}" method="post" class="login-form">
+            <h1>ID 찾기</h1>
+            <div class="member-info">
+                <input type="text" th:field="${foundId.mem_name}" placeholder="등록한 이름을 입력하세요"><br>
+                <input type="text" th:field="${foundId.mem_email}" placeholder="등록한 이메일을 입력하세요"><br>
+                <button type="submit">ID 찾기</button>
+                <div>
+	                <a href="/findPw" style="color: #000;">비밀번호 찾기</a>
+	                <a href="/memberRegister" style="color: #000;">회원가입</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

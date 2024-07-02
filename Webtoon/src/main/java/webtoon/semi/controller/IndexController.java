@@ -64,8 +64,6 @@ public class IndexController {
 			return "searchResult";
 		}
 		
-		
-		
 	@GetMapping("/memberRegister")//index.html의 a href="/"와 같게
 	public String memberRegister(Model model) {
 		

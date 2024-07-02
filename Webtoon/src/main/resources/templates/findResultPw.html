@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>ID 찾기 결과</title>
+<link rel="stylesheet" href="/css/login/loginMost.css">
+</head>
+<body>
+    <div class="result-container">
+        <h1>PW 찾기 결과</h1>
+        <div class="member-info" th:if="${findPassword != null}">
+            <p>회원님의 PW는 다음과 같습니다:</p>
+            <span th:text="${findPassword.mem_pw}"></span>
+        </div>
+        <div th:if="${findPassword == null}">
+            <p>입력하신 정보로 등록된 PW를 찾을 수 없습니다.</p>
+        </div>
+        <button onclick="window.location.href='/'">홈으로 돌아가기</button>
+        <div>
+            <a href="/findId" style="color: #000;">ID 찾기</a>
+            <a href="/memberRegister" style="color: #000;">회원가입</a>
+        </div>
+    </div>
+</body>
+</html>

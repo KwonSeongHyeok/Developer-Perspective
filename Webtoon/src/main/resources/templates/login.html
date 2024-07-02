@@ -1,45 +1,57 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-	<meta charset="utf-8">
-	<title>로그인 마이페이지용</title>
-	<link rel="stylesheet" href="/css/member/headerFooter.css">
-	<link rel="stylesheet" href="/css/member/login.css">
-
+<meta charset="UTF-8">
+<title>웹툰 푸터 예제</title>
+<link rel="stylesheet" href="/css/login/login.css">
 </head>
 <body>
-	<header>
-		<h1>로그인</h1>
-	</header>
-	<div class="container">
-		<div class="loginDiv">
-			<form action="/login" method="post">
-				<!-- m은 controller addAttribute -->
-				<label>I D </label> <input type="text" th:field="${m.mem_id}"><br>
-				<label>PW  </label> <input type="password" th:field="${m.mem_pw}"><br>
-				<button>로그인</button>
-			</form>
-			<div th:if="${e}">
-				<p th:text="${e}" style="color: red;"></p>
-			</div>
-		</div>
-		<!-- 
-		<div class="sideDiv1" style="display: none">
-			<h3>로그인창 광고1</h3>
-			<img src="/images/Mangalica-pigs3.jpg">
-		</div>
-		<div class="sidDiv2" style="display: none">
-			<h3>로그인창 광고2</h3>
-			<img src="/images/kunekune-pigs3.jpg">
-		</div>
-		 -->
-	</div>
-	<footer class="footer mt-5 relative-bottom">
-            <div class="text-center">
-              <p>&copy; 2024 KH-T Webtoon. All Teemplay Semi-Project.</p>
-              <p><a href="#">개인정보처리방침</a> | <a href="#">이용약관</a> | <a href="inquiry">건의사항 등록</a></p>
-            </div>
-     </footer>
+	<!-- 로그인 폼 -->
+<div class="login-container">
+    <form action="/sign-in" method="post" class="login-form">
+        <h1>로그인</h1>
+        <div class="member-info">
+            <input type="text" th:field="${login.mem_id}" placeholder="아이디"><br>
+            <input type="password" th:field="${login.mem_pw}" placeholder="비밀번호"><br>
+            <button type="submit">로그인</button>
+            <a href="/memberRegister">회원가입</a>
+            <a href="/findId" class="btn btn-outline btn-info">ID 찾기</a>
+            <a href="/findPw" class="btn btn-outline btn-info">비밀번호 찾기</a>
+        </div>
+    </form>
+	<div th:if="${error}">
+		<p th:text="${error}" style="color: red;"></p>
+    </div>
+</div>
 
+
+	<!-- 푸터 -->
+	<footer class="site-footer">
+		<div class="container">
+			<div class="footer-links">
+				<ul>
+					<li><a href="footer/전지적개발자시점이용약관.html">전지적개발자시점 이용약관</a></li>
+					<li><a href="footer/전용삼풍권.html">전용상품권 이용약관</a></li>
+					<li><a href="footer/개인정보처리방침.html">개인정보처리방침</a></li>
+					<li><a href="footer/청소년보호정책.html">청소년보호정책</a></li>
+					<li><a href="footer/책임한계와법적고지.html">책임한계와 법적고치</a></li>
+
+
+				</ul>
+			</div>
+			<div class="copyright">
+				<p>ⓒ 전지적 개발자 시점.</p>
+			</div>
+
+		</div>
+		<div class="container">
+			<ul class="additional-links">
+				<li><a href="#">전시적개발시점 사업자등록번호 175-00-967982</a></li>
+				<li>이메일 kh0404@naver.com 호스트 제공 KH개발
+				<li>고객센터 1142-1142</li>
+				<li>1 : 1 문의</li>
+			</ul>
+		</div>
+	</footer>
 </body>
 </html>

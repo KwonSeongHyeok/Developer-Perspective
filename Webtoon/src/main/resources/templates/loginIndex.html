@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>알림</title>
+<link rel="stylesheet" href="/css/login/loginIndex.css">
+</head>
+<body>
+   
+    <div th:if="${session.loginSession} == null">
+        <a href="/login" class="login-link">Home</a>
+    </div>
+     <h1>알림</h1>
+    <div th:if="${session.loginSession} != null">
+        <a href="/logout" class="logout-link">로그아웃</a>
+    </div>
+    <div th:if="${session.loginSession}">
+        <p th:text="${session.loginSession.login_id}" class="login-info"></p>
+    </div>
+    <h1 th:text="${error}"></h1>
+</body>
+</html>
