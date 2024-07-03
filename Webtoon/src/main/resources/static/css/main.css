@@ -1,3 +1,6 @@
+
+
+
 body {
 	background-color: #f2f2f2;
 	margin: 0;
@@ -85,6 +88,7 @@ nav {
 
 .d-flex {
 	margin-right: 10px;
+	color: black;
 }
 
 
@@ -100,7 +104,9 @@ li {
 .navbar-dark {
 	background-color: #343a40;
 }
-
+input.form-control.me-2 {
+    color: black;
+}
 .navbar-dark .navbar-brand, .navbar-dark .nav-link, .navbar-dark .navbar-toggler-icon,
 	.navbar-dark .form-control, .navbar-dark{
 	color: #ffffff;

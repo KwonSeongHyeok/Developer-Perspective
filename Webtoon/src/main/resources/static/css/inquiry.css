@@ -11,6 +11,10 @@ header {
 	padding: 40px;
 }
 
+input.form-control.me-2 {
+    color: black;
+}
+
 header {
 	background-image: linear-gradient(to right, black, darkblue);
 	color: white;
