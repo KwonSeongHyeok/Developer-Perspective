@@ -26,6 +26,9 @@ nav {
 	margin-right: 10px;
 }
 
+.form-control {
+	
+}
 
 li {
 	margin-top: 20px;
@@ -51,7 +54,7 @@ li {
 	font-weight: bold;
 }
 
-.navbar-dark{
+.navbar-dark .form-control {
 	background-color: #495057;
 	border-color: #6c757d;
 }
@@ -165,6 +168,10 @@ body {
 	text-decoration: underline;
 }
 
+
+.flex{
+	
+}
 
 /****** Footer Css ******/
 .footer {

@@ -1,0 +1,27 @@
+body {
+	text-align: center;
+}
+
+.board-name {
+	font-weight: bold;
+	font-size: 50px;
+	text-align: center;
+	padding: 40px;
+}
+
+header {
+	background-image: linear-gradient(to right, black, darkblue);
+	color: white;
+	text-align: center;
+	padding: 10px 0;
+}
+img {
+	width: 50%;
+}
+.row {
+	font-weight: bold;
+	font-size: 40px;
+}
+.card span {
+    font-size: 40px;
+}

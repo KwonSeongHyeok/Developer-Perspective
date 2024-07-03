@@ -1,166 +1,174 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-	<meta charset="utf-8">
-	<title>마이페이지</title>
-	
-	<link rel="stylesheet" href="/css/Dtail.css">
-	<link rel="stylesheet" href="/css/main.css">
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-		  rel="stylesheet" 
-		  integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-		  crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/myPage.css">
+<meta charset="utf-8">
+<title>마이페이지</title>
+
+<link rel="stylesheet" href="/css/Dtail.css">
+<link rel="stylesheet" href="/css/main.css">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+	crossorigin="anonymous">
+<link rel="stylesheet" href="/css/myPage.css">
 </head>
 <body>
 
- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-           
-            <a class="navbar-brand" href="#">  <!-- 브랜드 이미지 -->
-		      <img src="https://cdn.icon-icons.com/icons2/3915/PNG/512/yourtraveldottv_logo_icon_249126.png" 
-		      alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
-     		 </a>
-     		 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            
-            <div class="brand-title">
-            	<a style="color:white">WebToon</a>
-            </div>
-            
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/webtoon-Main">웹툰</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/web-register">도전만화 등록</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/inquiry-Board">문의 게시판</a>
-                    </li>
-                </ul>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<div class="container-fluid">
 
-                <form class="d-flex" role="search" th:action="@{/search-result}" method="post">   <!-- 검색창 DB 연동에 대해서 생각 -->
-                    <input class="form-control me-2" type="search" name="keyword" placeholder="제목 또는 작가 입력" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-                
-                <div class="nav_login">
+			<a class="navbar-brand" href="#"> <!-- 브랜드 이미지 --> <img
+				src="/images/logo.jpg" alt="Logo" width="30" height="24"
+				class="d-inline-block align-text-top">
+			</a>
+
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="brand-title">
+				<a style="color: white">K-Toon</a>
+			</div>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+					<li class="nav-item"><a class="nav-link active"
+						aria-current="page" href="/">Home</a></li>
+					<li class="nav-item"><a class="nav-link" href="/webtoon-Main">웹툰</a>
+					</li>
+					<li class="nav-item"><a class="nav-link" href="/web-register">도전만화
+							등록</a></li>
+					<li class="nav-item"><a class="nav-link" href="/inquiry-Board">문의
+							게시판</a></li>
+				</ul>
+
+				<form class="d-flex" role="search" th:action="@{/search-result}"
+					method="post">
+					<!-- 검색창 DB 연동에 대해서 생각 -->
+					<input class="form-control me-2" type="search" name="keyword"
+						placeholder="제목 또는 작가 입력" aria-label="Search">
+					<button class="btn btn-outline-success" type="submit">Search</button>
+				</form>
+
+				<div class="nav_login logRegi">
 					<div th:if="${session.loginSession != null}">
 						<p th:text="${session.loginSession.mem_name} + ' 님 환영합니다.' "></p>
 						<a href="/logout">로그아웃</a> <a href="/myPage">마이페이지</a>
 					</div>
+
+					<div class="info" th:if="${session.loginSession == null}">
+						<a href="/login">로그인</a> <a href="/memberRegister">회원가입</a>
+					</div>
 				</div>
-				
-				<div class="info" th:if="${session.loginSession == null}">
-                <a href="/login">로그인</a>
-                <a href="/memberRegister">회원가입</a>
-                </div>
-                
-            </div>
-        </div>
-    </nav>
+
+
+
+			</div>
+		</div>
+	</nav>
 
 	<header>
-        <h1>마이 페이지</h1>
-    </header>
-   
-    <div class="containers">
-       
-        <div class="asides">
-        
-       	<div th:if="${member != null}" class="infoDiv">
-	
-		 <table>
-			
-			<tr>
-				<th>id</th>
-				<td class="ps" th:text="${member.mem_id}"></td>
-			</tr>
-			<tr>
-				<th>이름</th>
-				<td class="ps" th:text="${member.mem_name}"></td>
-			</tr>
-			<tr>
-				<th>닉네임</th>
-				<td class="ps" th:text="${member.mem_nickname}"></td>
-			</tr>
-			<tr>
-				<th>비밀번호</th>
-				<td class="ps" th:text="${member.mem_pw}"></td>
-			</tr>
-			<tr>
-				<th>주소</th>
-				<td class="ps" th:text="${member.mem_address}"></td>
-			</tr>
-			<tr>
-				<th>이메일</th>
-				<td class="ps" th:text="${member.mem_email}"></td>
-			</tr>
-			<tr>
-				<th>휴대폰</th>
-				<td class="ps" th:text="${member.mem_phone}"></td>
-			</tr>	
-			<tr>
-				<th>생년월일</th>
-				<td class="ps" th:text="${member.mem_ssn}"></td>
-			</tr>
-			<tr>
-				<th>가입일</th>
-				<td class="ps" th:text="${member.mem_join_date}"></td>
-			</tr>
-			<tr>
-				<th>성별</th>
-				<td class="ps" th:text="${member.mem_gender}"></td>
-			</tr>
-			
-		</table>
-		
-		<!-- 
+		<h1>마이 페이지</h1>
+	</header>
+
+	<div class="containers">
+
+		<div class="asides">
+
+			<div th:if="${member != null}" class="infoDiv">
+
+				<table>
+
+					<tr>
+						<th>id</th>
+						<td class="ps" th:text="${member.mem_id}"></td>
+					</tr>
+					<tr>
+						<th>이름</th>
+						<td class="ps" th:text="${member.mem_name}"></td>
+					</tr>
+					<tr>
+						<th>닉네임</th>
+						<td class="ps" th:text="${member.mem_nickname}"></td>
+					</tr>
+					<tr>
+						<th>비밀번호</th>
+						<td class="ps" th:text="${member.mem_pw}"></td>
+					</tr>
+					<tr>
+						<th>주소</th>
+						<td class="ps" th:text="${member.mem_address}"></td>
+					</tr>
+					<tr>
+						<th>이메일</th>
+						<td class="ps" th:text="${member.mem_email}"></td>
+					</tr>
+					<tr>
+						<th>휴대폰</th>
+						<td class="ps" th:text="${member.mem_phone}"></td>
+					</tr>
+					<tr>
+						<th>생년월일</th>
+						<td class="ps" th:text="${member.mem_ssn}"></td>
+					</tr>
+					<tr>
+						<th>가입일</th>
+						<td class="ps" th:text="${member.mem_join_date}"></td>
+					</tr>
+					<tr>
+						<th>성별</th>
+						<td class="ps" th:text="${member.mem_gender}"></td>
+					</tr>
+
+				</table>
+
+				<!-- 
 		<a th:href="@{/modifyProfile}">마이페이지 수정하기</a>
 		 -->
-		
-		<form th:action="@{/deleteMember}" method="get">
-			<button>탈퇴하기</button>
-		</form>
-		
+
+				<form th:action="@{/deleteMember}" method="get">
+					<button>탈퇴하기</button>
+				</form>
+
+			</div>
+
 		</div>
-        
-        </div><!--aside-->
-         
-         <div class="sideDiv">
-		<img src="/images/747269.jpg">
-		<img src="/images/695796.jpg">
-		</div>
-		
+		<!--aside-->
+
 		<div class="sideDiv">
-		<img src="/images/773797.jpg">
-		<img src="/images/769209.jpg">
+			<img src="/images/747269.jpg"> <img src="/images/695796.jpg">
 		</div>
-         
-        </div> <!-- container -->
-        
-			
-	    <footer class="footer">
-            <div class="container text-center">
-              <p>&copy; 2024 KH-T Webtoon. All Teemplay Semi-Project.</p>
-              <p><a href="#">개인정보처리방침</a> | <a href="#">이용약관</a> | <a href="inquiry">건의사항 등록</a></p>
-            </div>
-        </footer>
-          
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-            crossorigin="anonymous"></script>
-	
+
+		<div class="sideDiv">
+			<img src="/images/773797.jpg"> <img src="/images/769209.jpg">
+		</div>
+
+	</div>
+	<!-- container -->
 
 
-	
+	<footer class="footer">
+		<div class="container text-center">
+			<p>&copy; 2024 KH-T Webtoon. All Teemplay Semi-Project.</p>
+			<p>
+				<a href="#">개인정보처리방침</a> | <a href="#">이용약관</a> | <a href="inquiry">건의사항
+					등록</a>
+			</p>
+		</div>
+	</footer>
+
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+		crossorigin="anonymous"></script>
+
+
+
+
 </body>
 </html>

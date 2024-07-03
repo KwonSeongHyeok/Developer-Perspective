@@ -1,3 +1,6 @@
+
+
+
 body {
 	background-color: #f2f2f2;
 	margin: 0;
@@ -85,11 +88,9 @@ nav {
 
 .d-flex {
 	margin-right: 10px;
+	color: black;
 }
 
-.form-control {
-	
-}
 
 li {
 	margin-top: 20px;
@@ -103,7 +104,9 @@ li {
 .navbar-dark {
 	background-color: #343a40;
 }
-
+input.form-control.me-2 {
+    color: black;
+}
 .navbar-dark .navbar-brand, .navbar-dark .nav-link, .navbar-dark .navbar-toggler-icon,
 	.navbar-dark .form-control, .navbar-dark{
 	color: #ffffff;
@@ -115,7 +118,7 @@ li {
 	font-weight: bold;
 }
 
-.navbar-dark .form-control {
+.navbar-dark{
 	background-color: #495057;
 	border-color: #6c757d;
 }

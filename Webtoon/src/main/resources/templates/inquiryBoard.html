@@ -10,7 +10,7 @@
 	crossorigin="anonymous">
 <link rel="stylesheet" href="/css/main.css">
 <link rel="stylesheet" href="/css/board/boardList-style.css">
-
+<link rel="stylesheet" href="/css/board/pageNation.css">
 </head>
 <body>
 
@@ -18,7 +18,7 @@
         <div class="container-fluid">
            
             <a class="navbar-brand" href="#">  <!-- 브랜드 이미지 -->
-		      <img src="https://cdn.icon-icons.com/icons2/3915/PNG/512/yourtraveldottv_logo_icon_249126.png" 
+		      <img src="/images/logo.jpg" 
 		      alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
      		 </a>
      		 
@@ -27,7 +27,7 @@
             </button>
             
             <div class="brand-title">
-            	<a style="color:white">WebToon</a>
+            	<a style="color:white">K-Toon</a>
             </div>
             
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -40,7 +40,7 @@
                         <a class="nav-link" href="/webtoon-Main">웹툰</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/web-register">도전만화 등록</a>
+                        <a onclick="needLogin()" class="nav-link" href="/web-register">도전만화 등록</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/inquiry-Board">문의 게시판</a>
@@ -51,17 +51,17 @@
                     <input class="form-control me-2" type="search" name="keyword" placeholder="제목 또는 작가 입력" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
-
+                
                 <div class="nav_login logRegi">
-					<div th:if="${session.loginSession != null}">
-						<p th:text="${session.loginSession.mem_name} + ' 님 환영합니다.' "></p>
+					<div th:if="${session.loginSession != null}" >
+						<p th:text="${session.loginSession.mem_name} + ' 님 환영합니다.' ">&nbsp;&nbsp;&nbsp;</p>
 						<a href="/logout">로그아웃</a> <a href="/myPage">마이페이지</a>
 					</div>
-				</div>
-				<div th:if="${session.loginSession == null}">
-                <a href="/login">로그인</a>
-
-                <a href="/memberRegister">회원가입</a>
+					<div th:if="${session.loginSession == null}">
+	                <a href="/login">로그인</a>
+	
+	                <a href="/memberRegister">회원가입</a>
+	                </div>
                 </div>
             </div>
         </div>
@@ -73,7 +73,7 @@
 		<header>
 			<h1 class="board-name">문의 게시판</h1>
 		</header>
-		
+
 		<section class="board-list">
 
 			<div class="list-wrapper">
@@ -85,7 +85,6 @@
 							<th>제목</th>
 							<th>작성자</th>
 							<th>작성일</th>
-							<th>조회수</th>
 						</tr>
 					</thead>
 
@@ -97,7 +96,7 @@
 							<td th:text="${i.inquiry_writer}"></td>
 							<td th:text="${i.inquiry_createDate}"></td>
 						</tr>
-						
+
 						<tr th:each="i : ${result}">
 							<td th:text="${i.inquiry_id}"></td>
 							<td class="board-titles"><a th:text="${i.inquiry_title}"
@@ -105,38 +104,36 @@
 							<td th:text="${i.inquiry_writer}"></td>
 							<td th:text="${i.inquiry_createDate}"></td>
 						</tr>
-						
+
 					</tbody>
 				</table>
 
 			</div>
 
 			<div class="btn-area">
-				
+
 				<button onclick="location.href='/inquiry_register'">글쓰기</button>
-				
+
 			</div>
-		
+
+
 			<!-- 검색창 -->
-			<form th:action="@{/boardSearch-result}" method="post" id="boardSearch">
+			<form th:action="@{/boardSearch-result}" method="post"
+				id="boardSearch">
 
 				<select>
 					<option id="title">제목</option>
 					<!--<option value="">내용</option>
 					    <option value="">제목+내용</option>-->
 					<option id="writer">작성자</option>
-				</select> 
-				<input type="text" name="keyword" placeholder="작성자 또는 제목을 검색하세요.">
+				</select> <input type="text" name="keyword" placeholder="작성자 또는 제목을 검색하세요.">
 
 				<button>검색</button>
-				
+
 			</form>
 
 		</section>
 	</main>
-
-
-
 
 	<footer class="footer mt-5">
 		<div class="container text-center">
@@ -147,11 +144,6 @@
 			</p>
 		</div>
 	</footer>
-
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-		crossorigin="anonymous"></script>
 
 </body>
 </html>

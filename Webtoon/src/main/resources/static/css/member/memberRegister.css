@@ -4,7 +4,7 @@ h1{
 body {
 	margin: 0;
 	padding: 0;
-	background-color: rgb(255, 224, 224);
+	background-color: #f2f2f2;
 }
 
 header{
@@ -31,7 +31,7 @@ button:hover{
 	padding: 50px;
 	display: flex;
 	margin: 0 auto;
-	background-color: rgb(255, 224, 224);
+	background-color: #f2f2f2;
 }
 
 .registerDiv {
