@@ -75,7 +75,7 @@
 				<label>작품명   </label>
 				</div>
 				<div>
-				<input type="text" th:field="${w.web_name}" required class="input-item-text">
+				<input type="text" th:field="${w.web_name}" required placeholder="웹툰 제목을 입력하세요." class="input-item-text">
 				</div>
 			</div>
 			<div class="input-item">
@@ -83,7 +83,7 @@
 				<label>작가이름 / 닉네임  </label>
 				</div>
 				<div>
-				<input type="text" th:field="${w.web_author}" required class="input-item-text">
+				<input type="text" th:field="${w.web_author}" required placeholder="본인 이름 또는 작가명을 입력하세요."  class="input-item-text">
 				</div>
 			</div>
 			<div class="radio input-item">
@@ -143,7 +143,8 @@
 				<div>
 				<label><input type="radio" name="도전여부" value="Y" th:field="${w.web_challengeYN}" required> Y</label>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<label><input type="radio" name="도전여부" value="N" th:field="${w.web_challengeYN}" required> N</label>	
+				<label><input type="radio" name="도전여부" value="N" th:field="${w.web_challengeYN}" checked required> N</label>	
+				&nbsp;&nbsp;&nbsp;<span class="challenge">* 도전 만화 작가는 반드시 Y를 클릭해주세요</span>
 				</div>
 			</div>
 			<div class="filebox input-item">	
@@ -151,7 +152,9 @@
 				<label>대표 이미지  </label>
 				</div>
 				<div>
-				<input type="file" class="form-control" th:field="${w.web_image_path}" required onchange="readURL(this);"> 
+				<input type="file" class="form-control" th:field="${w.web_image_path}" required onchange="readURL(this);">
+				&nbsp;<span class="challenge">* 이미지 파일 이름은 웹툰제목과 동일하게 작성해주세요.</span><br>
+				&nbsp;<span class="challenge">* 이미지 파일 사이즈 : 480X623</span><br>
 				<img id="preview"/>
 				</div>	
 			</div>
@@ -159,6 +162,21 @@
 			<button class="btn btn-success">업로드</button>
 		</form>
 	</div>
+	
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+	<script>
+	function readURL(input) {
+		  if (input.files && input.files[0]) {
+		    var reader = new FileReader();
+		    reader.onload = function(e) {
+		      document.getElementById('preview').src = e.target.result;
+		    };
+		    reader.readAsDataURL(input.files[0]);
+		  } else {
+		    document.getElementById('preview').src = "";
+		  }
+		}
+	</script>
 
 
 	<footer class="footer mt-5 relative-bottom">
